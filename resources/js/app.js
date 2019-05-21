@@ -64,6 +64,7 @@ Vue.use(VueRouter);
 
 let routes = [
     { path: '/users', component: require('./components/Admin/Users.vue').default },
+    { path: '/developer', component: require('./components/Developer.vue').default },
     { path: '/charts-x', component: require('./components/Data/ChartX.vue').default },
     { path: '/charts-y', component: require('./components/Data/ChartY.vue').default },
     { path: '/charts-z', component: require('./components/Data/ChartZ.vue').default }
@@ -76,6 +77,9 @@ const router = new VueRouter({
 });
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('passport-clients', require('./components/passport/Clients.vue').default);
+Vue.component('passport-authorized-clients', require('./components/passport/AuthorizedClients.vue').default);
+Vue.component('passport-personal-access-tokens', require('./components/passport/PersonalAccessTokens.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
