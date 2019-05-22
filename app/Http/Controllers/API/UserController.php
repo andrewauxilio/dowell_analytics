@@ -30,18 +30,19 @@ class UserController extends Controller
 
         $this->validate($request,[
             'name' => 'required|string|max:191',
+            'type' => 'required|string',
             'email' => 'required|string|email|max:191|unique:users',
             'password' => 'required|string|min:5'
-            //'type' => 'required|string',
+            
 
         ]);
 
         return User::create([
             'name' => $request['name'],
+            'type' => $request['type'],
             'email' => $request['email'],
             'mobile' => $request['mobile'],
             'password' => Hash::make($request['password'])
-            //'type' => $request['type']
         ]);
     }
 

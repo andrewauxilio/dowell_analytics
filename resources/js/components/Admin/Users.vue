@@ -26,12 +26,18 @@
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Mobile</th>
+                                <th>Type</th>
+                                <th>Registration Date</th>
+                                <th>Last Modified</th>
                                 <th>Actions</th>
                             </tr>
                             <tr v-for='user in users' :key='user.id'>
                                 <td>{{ user.name }}</td>
                                 <td>{{ user.email }}</td>
                                 <td>{{ user.mobile }}</td>
+                                <td>{{ user.type | toUpperCase }} </td>
+                                <td>{{ user.created_at | myDate }}</td>
+                                <td>{{ user.updated_at | myDate }}</td>
                                 <td>
                                     <button class="btn btn-primary" @click="editUserModal(user)"><i class="fas fa-edit blue"></i></button>
                                     <button class="btn btn-danger" @click="deleteUser(user.id)"><i class="fas fa-trash"></i></button>
@@ -74,13 +80,15 @@
                             <has-error :form="form" field="email"></has-error>
                         </div>
 
-                        <!-- <div class="form-group">
+                        <div class="form-group">
                             <label>Type</label>
                             <select v-model="form.type" class="form-control" :class="{ 'is-invalid': form.errors.has('type') }">
-                                <option value="sawyer">Sawyer</option>
+                                <option value="admin">Administrator</option>
+                                <option value="manager">Manager</option>
+                                <option value="user">User</option>
                             </select>
                             <has-error :form="form" field="type"></has-error>
-                        </div> -->
+                        </div>
 
                         <div class="form-group">
                             <label>Mobile Phone Number (Optional)</label>
@@ -121,6 +129,7 @@ export default {
             form: new Form({
                 id: '',
                 name: '',
+                type: '',
                 email: '',
                 mobile: '',
                 password: '',

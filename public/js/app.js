@@ -1894,6 +1894,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1902,6 +1910,7 @@ __webpack_require__.r(__webpack_exports__);
       form: new Form({
         id: '',
         name: '',
+        type: '',
         email: '',
         mobile: '',
         password: '',
@@ -2029,7 +2038,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -60429,6 +60437,18 @@ var render = function() {
                       _c("td", [_vm._v(_vm._s(user.mobile))]),
                       _vm._v(" "),
                       _c("td", [
+                        _vm._v(_vm._s(_vm._f("toUpperCase")(user.type)) + " ")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(_vm._s(_vm._f("myDate")(user.created_at)))
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _vm._v(_vm._s(_vm._f("myDate")(user.updated_at)))
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
                         _c(
                           "button",
                           {
@@ -60621,6 +60641,69 @@ var render = function() {
                       "div",
                       { staticClass: "form-group" },
                       [
+                        _c("label", [_vm._v("Type")]),
+                        _vm._v(" "),
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.type,
+                                expression: "form.type"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            class: {
+                              "is-invalid": _vm.form.errors.has("type")
+                            },
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.form,
+                                  "type",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
+                              }
+                            }
+                          },
+                          [
+                            _c("option", { attrs: { value: "admin" } }, [
+                              _vm._v("Administrator")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "manager" } }, [
+                              _vm._v("Manager")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "user" } }, [
+                              _vm._v("User")
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "type" }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
                         _c("label", [_vm._v("Mobile Phone Number (Optional)")]),
                         _vm._v(" "),
                         _c("input", {
@@ -60782,6 +60865,12 @@ var staticRenderFns = [
       _c("th", [_vm._v("Email")]),
       _vm._v(" "),
       _c("th", [_vm._v("Mobile")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Type")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Registration Date")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Last Modified")]),
       _vm._v(" "),
       _c("th", [_vm._v("Actions")])
     ])
