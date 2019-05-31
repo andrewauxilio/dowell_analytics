@@ -65,6 +65,9 @@ Vue.use(VueRouter);
 let routes = [
     { path: '/users', component: require('./components/Admin/Users.vue').default },
     { path: '/developer', component: require('./components/Developer.vue').default },
+    { path: '/charts-a', component: require('./components/Master/ChartA.vue').default },
+    { path: '/charts-b', component: require('./components/Master/ChartB.vue').default },
+    { path: '/charts-c', component: require('./components/Master/ChartC.vue').default },
     { path: '/charts-x', component: require('./components/Data/ChartX.vue').default },
     { path: '/charts-y', component: require('./components/Data/ChartY.vue').default },
     { path: '/charts-z', component: require('./components/Data/ChartZ.vue').default }

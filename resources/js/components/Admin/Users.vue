@@ -35,7 +35,7 @@
                                 <td>{{ user.name }}</td>
                                 <td>{{ user.email }}</td>
                                 <td>{{ user.mobile }}</td>
-                                <td>{{ user.type | toUpperCase }} </td>
+                                <td>{{ user.role | toUpperCase }} </td>
                                 <td>{{ user.created_at | myDate }}</td>
                                 <td>{{ user.updated_at | myDate }}</td>
                                 <td>

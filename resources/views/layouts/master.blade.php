@@ -80,7 +80,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview menu-open">
+          <li class="nav-item has-treeview menu">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-user-cog"></i>
               <p>
@@ -97,6 +97,103 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </li>
             </ul>
           </li>
+          <li class="nav-item has-treeview menu">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fab fa-font-awesome-flag"></i>
+              <p>
+                National 
+                <i class="right fa fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <router-link to="/charts-a" class="nav-link">
+                  <i class="nav-icon fa fa-circle-o"></i>
+                  <p>Chart A</p>
+                </router-link>
+              </li>
+              <li class="nav-item">
+                <router-link to="/charts-b" class="nav-link">
+                  <i class="nav-icon fa fa-circle-o"></i>
+                  <p>Chart B</p>
+                </router-link>
+              </li>
+              <li class="nav-item">
+                <router-link to="/charts-c" class="nav-link">
+                  <i class="nav-icon fa fa-circle-o"></i>
+                  <p>Chart C</p>
+                </router-link>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview menu">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-map-marked"></i>
+              <p>
+                Victoria
+                <i class="right fa fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <router-link to="/charts-a" class="nav-link">
+                  <i class="nav-icon fa fa-circle-o"></i>
+                  <p>Chart X</p>
+                </router-link>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview menu">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-map-marked"></i>
+              <p>
+                Queensland
+                <i class="right fa fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <router-link to="/charts-y" class="nav-link">
+                  <i class="nav-icon fa fa-circle-o"></i>
+                  <p>Chart Y</p>
+                </router-link>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview menu">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-map-marked"></i>
+              <p>
+                New South Wales
+                <i class="right fa fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <router-link to="/charts-z" class="nav-link">
+                  <i class="nav-icon fa fa-circle-o"></i>
+                  <p>Chart Z</p>
+                </router-link>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview menu">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-map-marked"></i>
+              <p>
+                South Australia
+                <i class="right fa fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <router-link to="" class="nav-link">
+                  <i class="nav-icon fa fa-circle-o"></i>
+                  <p>Chart ?</p>
+                </router-link>
+              </li>
+            </ul>
+          </li>
           <li class="nav-item">
             <router-link to="/developer" class="nav-link">
               <i class="nav-icon fas fa-cogs"></i>
@@ -105,7 +202,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </p>
             </router-link>
           </li>
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <router-link to="/charts-x" class="nav-link">
               <i class="nav-icon fas fa-chart-bar"></i>
               <p>
@@ -128,7 +225,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 Charts Z
               </p>
             </router-link>
-          </li>
+          </li> --}}
           <li class="nav-item">
             
             <a  class="nav-link" href="{{ route('logout') }}"
