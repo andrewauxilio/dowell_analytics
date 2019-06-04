@@ -19,6 +19,13 @@ Vue.use(VueProgressBar, {
     height: "6px",
 });
 
+//Epic Spinners
+// import EpicSpinner from 'epic-spinners';
+// Vue.use(EpicSpinner, {
+//     color: "'#ff1d5e'",
+//     size: "60",
+// });
+
 //ChartJS
 import Chart from "chart.js";
 import hchsvuecharts from "hchs-vue-charts";
@@ -107,6 +114,7 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 let routes = [
+    //Admin Tab Routes
     {
         path: "/users",
         component: require("./components/Admin/Users.vue").default,
@@ -115,29 +123,30 @@ let routes = [
         path: "/developer",
         component: require("./components/Developer.vue").default,
     },
+    //National Tab Routes
     {
         path: "/master-dashboard",
         component: require("./components/Master/MasterDashboard.vue").default,
     },
+    //VIC Tab Routes
     {
-        path: "/charts-b",
-        component: require("./components/Master/ChartB.vue").default,
+        path: "/manager-vic",
+        component: require("./components/StateVIC/Manager.vue").default,
     },
+    //QLD Tab Routes
     {
-        path: "/charts-c",
-        component: require("./components/Master/ChartC.vue").default,
+        path: "/manager-qld",
+        component: require("./components/StateQLD/Manager.vue").default,
     },
+    //NSW Tab Routes
     {
-        path: "/charts-x",
-        component: require("./components/Data/ChartX.vue").default,
+        path: "/manager-nsw",
+        component: require("./components/StateNSW/Manager.vue").default,
     },
+    //SA Tab Routes
     {
-        path: "/charts-y",
-        component: require("./components/Data/ChartY.vue").default,
-    },
-    {
-        path: "/charts-z",
-        component: require("./components/Data/ChartZ.vue").default,
+        path: "/manager-sa",
+        component: require("./components/StateSA/Manager.vue").default,
     },
 ];
 
@@ -171,6 +180,26 @@ Vue.component(
     "new-quote-requests-pie", 
     require('./components/Charts/NewQuoteRequestsPieChart.vue').default
 );
+Vue.component(
+    "sales-line-gbg", 
+    require('./components/Charts/SalesFortnightGBGLineChart.vue').default
+);
+Vue.component(
+    "sales-line-new", 
+    require('./components/Charts/SalesFortnightNEWLineChart.vue').default
+);
+Vue.component(
+    "sales-line-now", 
+    require('./components/Charts/SalesFortnightNOWLineChart.vue').default
+);
+Vue.component(
+    "sales-line-smt", 
+    require('./components/Charts/SalesFortnightSMTLineChart.vue').default
+);
+
+
+
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -112,18 +112,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <p>Master Dashboard</p>
                 </router-link>
               </li>
-              <li class="nav-item">
-                <router-link to="/charts-b" class="nav-link">
-                  <i class="nav-icon fa fa-circle-o"></i>
-                  <p>Chart B</p>
-                </router-link>
-              </li>
-              <li class="nav-item">
-                <router-link to="/charts-c" class="nav-link">
-                  <i class="nav-icon fa fa-circle-o"></i>
-                  <p>Chart C</p>
-                </router-link>
-              </li>
             </ul>
           </li>
           <li class="nav-item has-treeview menu">
@@ -136,9 +124,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <router-link to="/charts-a" class="nav-link">
+                <router-link to="/manager-vic" class="nav-link">
                   <i class="nav-icon fa fa-circle-o"></i>
-                  <p>Chart X</p>
+                  <p>Manager</p>
                 </router-link>
               </li>
             </ul>
@@ -153,9 +141,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <router-link to="/charts-y" class="nav-link">
+                <router-link to="/manager-qld" class="nav-link">
                   <i class="nav-icon fa fa-circle-o"></i>
-                  <p>Chart Y</p>
+                  <p>Manager</p>
                 </router-link>
               </li>
             </ul>
@@ -170,9 +158,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <router-link to="/charts-z" class="nav-link">
+                <router-link to="/manager-nsw" class="nav-link">
                   <i class="nav-icon fa fa-circle-o"></i>
-                  <p>Chart Z</p>
+                  <p>Manager</p>
                 </router-link>
               </li>
             </ul>
@@ -187,9 +175,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <router-link to="" class="nav-link">
+                <router-link to="/manager-sa" class="nav-link">
                   <i class="nav-icon fa fa-circle-o"></i>
-                  <p>Chart ?</p>
+                  <p>Manager</p>
                 </router-link>
               </li>
             </ul>

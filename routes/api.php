@@ -19,5 +19,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::apiResources([
     'user'=> 'API\UserController',
-    'newQuoteRequest' => 'API\NewQuoteRequestController'    
+    'newQuoteRequest' => 'API\NewQuoteRequestController',
+    'SalesFortnightGBG' => 'API\SalesFortnightGBGController',
+    'SalesFortnightNEW' => 'API\SalesFortnightNEWController',
+    'SalesFortnightNOW' => 'API\SalesFortnightNOWController',  
+    'SalesFortnightSMT' => 'API\SalesFortnightSMTController'        
 ]);
