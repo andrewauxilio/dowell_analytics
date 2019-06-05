@@ -60,7 +60,7 @@ Prerequisites:
 Contact Us:
 [Dowell Website](http://www.dowell.com.au/).
 
--   **[Andrew Auxilio](https://andrewauxilio.me)**
--   **[Mark Greenwood](https://tighten.co)**
--   **[Manoj Mishra](https://kirschbaumdevelopment.com)**
--   **[Jim Konstas](https://64robots.com)**
+-   **[Andrew Auxilio](http://www.dowell.com.au/)**
+-   **[Mark Greenwood](http://www.dowell.com.au/)**
+-   **[Manoj Mishra](http://www.dowell.com.au/)**
+-   **[Jim Konstas](http://www.dowell.com.au/)**
