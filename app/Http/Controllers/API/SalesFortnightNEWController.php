@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\API;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\SalesFortnightNEW;
+use Illuminate\Http\Request;
 
 class SalesFortnightNEWController extends Controller
 {
@@ -13,6 +13,12 @@ class SalesFortnightNEWController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+    }
+
     public function index()
     {
         return SalesFortnightNEW::get();

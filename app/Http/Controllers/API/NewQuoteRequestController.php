@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\API;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\NewQuoteRequest;
+use Illuminate\Http\Request;
 
 class NewQuoteRequestController extends Controller
 {
@@ -13,6 +13,11 @@ class NewQuoteRequestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+    }
+
     public function index()
     {
         return NewQuoteRequest::get();

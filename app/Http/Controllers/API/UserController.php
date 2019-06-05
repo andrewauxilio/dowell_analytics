@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\API;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 use Hash;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -14,6 +14,12 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+    }
+
     public function index()
     {
         return User::latest()->paginate(10);
@@ -28,12 +34,11 @@ class UserController extends Controller
     public function store(Request $request)
     {
 
-        $this->validate($request,[
+        $this->validate($request, [
             'name' => 'required|string|max:191',
             'type' => 'required|string',
             'email' => 'required|string|email|max:191|unique:users',
-            'password' => 'required|string|min:5'
-            
+            'password' => 'required|string|min:5',
 
         ]);
 
@@ -42,7 +47,7 @@ class UserController extends Controller
             'type' => $request['type'],
             'email' => $request['email'],
             'mobile' => $request['mobile'],
-            'password' => Hash::make($request['password'])
+            'password' => Hash::make($request['password']),
         ]);
     }
 
@@ -68,13 +73,12 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
 
-        $this->validate($request,[
+        $this->validate($request, [
             'name' => 'required|string|max:191',
-            'email' => 'required|string|email|max:191|unique:users,email,' .$user->id,
-            'password' => 'sometimes|min:5'
+            'email' => 'required|string|email|max:191|unique:users,email,' . $user->id,
+            'password' => 'sometimes|min:5',
 
         ]);
-
 
         $user->update($request->all());
 
@@ -96,6 +100,6 @@ class UserController extends Controller
         $user->delete();
 
         //Confirmation Message
-        return['message' => 'User Deleted....'];
+        return ['message' => 'User Deleted....'];
     }
 }

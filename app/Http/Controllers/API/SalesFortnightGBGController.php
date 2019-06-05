@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\API;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\SalesFortnightGBG;
+use Illuminate\Http\Request;
 
 class SalesFortnightGBGController extends Controller
 {
@@ -13,6 +13,12 @@ class SalesFortnightGBGController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+    }
+
     public function index()
     {
         return SalesFortnightGBG::get();
