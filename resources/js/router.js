@@ -12,6 +12,11 @@ let routes = [
     path: '/users',
     component: require('./components/Admin/Users.vue').default
   },
+  // Profile Tab Route
+  {
+    path: '/profile',
+    component: require('./components/Profile/Profile.vue').default
+  },
   {
     path: '/developer',
     component: require('./components/Developer.vue').default
