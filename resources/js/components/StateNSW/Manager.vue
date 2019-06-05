@@ -1,7 +1,7 @@
 <template>
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-12 mt-3">
+      <div class="col-4 mt-3">
         <div class="card card-primary">
           <div class="card-header" id="line-chart">
             <h3 class="card-title">Newcastle Last Fortnight Sales</h3>
@@ -12,7 +12,7 @@
           <!-- /.card-body -->
         </div>
       </div>
-      <div class="col-12 mt-3">
+      <div class="col-4 mt-3">
         <div class="card card-primary">
           <div class="card-header" id="line-chart">
             <h3 class="card-title">Nowra Last Fortnight Sales</h3>
@@ -23,7 +23,7 @@
           <!-- /.card-body -->
         </div>
       </div>
-      <div class="col-12 mt-3">
+      <div class="col-4 mt-3">
         <div class="card card-primary">
           <div class="card-header" id="line-chart">
             <h3 class="card-title">Smithfield Last Fortnight Sales</h3>
