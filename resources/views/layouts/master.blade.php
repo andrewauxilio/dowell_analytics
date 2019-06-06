@@ -107,9 +107,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <router-link to="/master-dashboard" class="nav-link">
+                <router-link to="/nat-sales" class="nav-link">
                   <i class="nav-icon fa fa-circle-o"></i>
-                  <p>Master Dashboard</p>
+                  <p>Sales</p>
                 </router-link>
               </li>
             </ul>

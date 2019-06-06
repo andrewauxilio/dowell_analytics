@@ -8,7 +8,7 @@ export default {
     let Dates = new Array();
     let Labels = new Array();
     let Sales = new Array();
-    axios.get("api/SalesFortnightNOW").then(response => {
+    axios.get("api/NOWSales").then(response => {
       let data = response.data;
       if (data) {
         data.forEach(element => {

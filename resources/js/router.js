@@ -23,8 +23,8 @@ let routes = [
   },
   // National Tab Routes
   {
-    path: '/master-dashboard',
-    component: require('./components/Master/MasterDashboard.vue').default
+    path: '/nat-sales',
+    component: require('./components/Master/NationalSales.vue').default
   },
   // VIC Tab Routes
   {
@@ -75,6 +75,10 @@ Vue.component(
 Vue.component(
   'new-quote-requests-pie',
   require('./components/Charts/NewQuoteRequestsPieChart.vue').default
+)
+Vue.component(
+  'sales-line-nat',
+  require('./components/Charts/SalesFortnightNATLineChart.vue').default
 )
 Vue.component(
   'sales-line-gbg',

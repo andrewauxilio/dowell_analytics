@@ -24,7 +24,15 @@ Route::apiResources([
     'SalesFortnightNEW' => 'API\SalesFortnightNEWController',
     'SalesFortnightNOW' => 'API\SalesFortnightNOWController',
     'SalesFortnightSMT' => 'API\SalesFortnightSMTController',
+    'SalesNAT' => 'API\SalesController',
 ]);
 
 Route::get('profile', 'API\UserController@profile');
 Route::put('profile', 'API\UserController@updateProfile');
+
+//Sales
+Route::get('NATSales', 'API\SalesController@getNATSales');
+Route::get('GBGSales', 'API\SalesController@getGBGSales');
+Route::get('NEWSales', 'API\SalesController@getNEWSales');
+Route::get('NOWSales', 'API\SalesController@getNOWSales');
+Route::get('SMTSales', 'API\SalesController@getSMTSales');
