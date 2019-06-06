@@ -42,7 +42,7 @@
                   <th>Name</th>
                   <th>Email</th>
                   <th>Mobile</th>
-                  <th>Type</th>
+                  <th>Role</th>
                   <th>Registration Date</th>
                   <th>Last Modified</th>
                   <th>Actions</th>
@@ -120,9 +120,9 @@
               </div>
 
               <div class="form-group">
-                <label>Type</label>
+                <label>Role</label>
                 <select
-                  v-model="form.type"
+                  v-model="form.role"
                   class="form-control"
                   :class="{ 'is-invalid': form.errors.has('type') }"
                 >
@@ -181,8 +181,9 @@ export default {
       form: new Form({
         id: "",
         name: "",
-        type: "",
+        role: "",
         email: "",
+        photo: "",
         mobile: "",
         password: "",
         remember: false
@@ -195,6 +196,9 @@ export default {
     //--------------------------------------//
     updateUser(id) {
       this.$Progress.start();
+      if (this.form.password == "") {
+        this.form.password = undefined;
+      }
       this.form
         .put("api/user/" + this.form.id)
         .then(() => {

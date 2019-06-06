@@ -6,10 +6,14 @@
         <div class="card card-primary card-outline">
           <div class="card-body box-profile">
             <div class="text-center">
-              <img class="profile-user-img img-fluid img-circle" src alt="User profile picture">
+              <img
+                class="profile-user-img img-fluid img-circle"
+                :src="getProfilePhoto()"
+                alt="User profile picture"
+              >
             </div>
 
-            <h3 class="profile-username text-center">Nina Mcintire</h3>
+            <h3 class="profile-username text-center">{{ form.name }}</h3>
 
             <p class="text-muted text-center">Software Engineer</p>
 
@@ -47,10 +51,7 @@
               <i class="fas fa-info-circle"></i> Information
             </strong>
 
-            <p
-              class="text-muted"
-            >Lorem ipsum represents a long-held tradition for designers, typographers and the like. Some people hate it and argue</p>
-
+            <p class="text-muted">{{ form.info }}</p>
             <hr>
 
             <strong>
@@ -66,88 +67,100 @@
       <!-- /.col -->
       <div class="col-md-9">
         <div class="card">
-          <div class="card-header p-2">
-            <ul class="nav nav-pills">
-              <li class="nav-item">
-                <a class="nav-link active" href="#activity" data-toggle="tab">Activity</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#settings" data-toggle="tab">Settings</a>
-              </li>
-            </ul>
-          </div>
+          <div class="card-header p-2">Account Settings</div>
           <!-- /.card-header -->
           <div class="card-body">
-            <div class="tab-content">
-              <div class="active tab-pane" id="activity">
-                <!-- Post -->
-                <div class="post">
-                  <div class="user-block">
-                    <img class="img-circle img-bordered-sm" src alt="user image">
-                    <span class="username">
-                      <a href="#">Jonathan Burke Jr.</a>
-                      <a href="#" class="float-right btn-tool">
-                        <i class="fa fa-times"></i>
-                      </a>
-                    </span>
-                    <span class="description">Shared publicly - 7:30 PM today</span>
-                  </div>
-                  <!-- /.user-block -->
-                  <p>
-                    Lorem ipsum represents a long-held tradition for designers,
-                    typographers and the like. Some people hate it and argue for
-                    its demise, but others ignore the hate as they create awesome
-                    tools to help create filler text for everyone from bacon lovers
-                    to Charlie Sheen fans.
-                  </p>
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label for="inputName" class="col-sm-2 control-label">Name</label>
+
+                <div class="col-sm-10">
+                  <input
+                    v-model="form.name"
+                    type="name"
+                    class="form-control"
+                    id="inputName"
+                    placeholder="Name"
+                    :class="{ 'is-invalid': form.errors.has('name') }"
+                  >
+                  <has-error :form="form" field="name"></has-error>
                 </div>
-                <!-- /.post -->
               </div>
-              <!-- /.tab-pane -->
+              <div class="form-group">
+                <label for="inputEmail" class="col-sm-2 control-label">Email</label>
 
-              <div class="tab-pane" id="settings">
-                <form class="form-horizontal">
-                  <div class="form-group">
-                    <label for="inputName" class="col-sm-2 control-label">Name</label>
-
-                    <div class="col-sm-10">
-                      <input type="email" class="form-control" id="inputName" placeholder="Name">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputEmail" class="col-sm-2 control-label">Email</label>
-
-                    <div class="col-sm-10">
-                      <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputInformation" class="col-sm-2 control-label">Information</label>
-
-                    <div class="col-sm-10">
-                      <textarea
-                        class="form-control"
-                        id="inputInformation"
-                        placeholder="Information"
-                      ></textarea>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="photo" class="col-sm-2 control-label">Account Photo</label>
-                    <div class="col-sm-12">
-                      <input type="file" name="photo" class="form-input">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                      <button type="submit" class="btn btn-success">Update</button>
-                    </div>
-                  </div>
-                </form>
+                <div class="col-sm-10">
+                  <input
+                    v-model="form.email"
+                    type="email"
+                    class="form-control"
+                    id="inputEmail"
+                    placeholder="Email"
+                    :class="{ 'is-invalid': form.errors.has('email') }"
+                  >
+                  <has-error :form="form" field="email"></has-error>
+                </div>
               </div>
-              <!-- /.tab-pane -->
-            </div>
-            <!-- /.tab-content -->
+              <div class="form-group">
+                <label for="inputMobile" class="col-sm-2 control-label">Mobile</label>
+
+                <div class="col-sm-10">
+                  <input
+                    v-model="form.mobile"
+                    type="number"
+                    class="form-control"
+                    id="inputMobile"
+                    placeholder="Mobile"
+                    :class="{ 'is-invalid': form.errors.has('mobile') }"
+                  >
+                  <has-error :form="form" field="mobile"></has-error>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputInformation" class="col-sm-2 control-label">Information</label>
+
+                <div class="col-sm-10">
+                  <textarea
+                    v-model="form.info"
+                    class="form-control"
+                    id="inputInformation"
+                    placeholder="Information"
+                    :class="{ 'is-invalid': form.errors.has('info') }"
+                  ></textarea>
+                  <has-error :form="form" field="info"></has-error>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="photo" class="col-sm-2 control-label">Account Photo</label>
+                <div class="col-sm-12">
+                  <input type="file" name="photo" class="form-input" @change="updatePhoto">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputMobile" class="col-sm-2 control-label">Password</label>
+
+                <div class="col-sm-10">
+                  <input
+                    v-model="form.password"
+                    type="password"
+                    class="form-control"
+                    id="inputPassword"
+                    placeholder="Password"
+                    :class="{ 'is-invalid': form.errors.has('password') }"
+                  >
+                  <has-error :form="form" field="password"></has-error>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button
+                    type="submit"
+                    class="btn btn-success"
+                    @click.prevent="updateProfile"
+                  >Update</button>
+                </div>
+              </div>
+            </form>
           </div>
           <!-- /.card-body -->
         </div>
@@ -167,6 +180,8 @@ export default {
         id: "",
         name: "",
         role: "",
+        info: "",
+        photo: "",
         email: "",
         mobile: "",
         password: "",
@@ -175,12 +190,68 @@ export default {
     };
   },
 
+  methods: {
+    getProfilePhoto() {
+      let prefix = this.form.photo.match(/\//) ? "" : "/images/profile/";
+      return prefix + this.form.photo;
+    },
+
+    updateProfile() {
+      this.$Progress.start();
+      if (this.form.password == "") {
+        this.form.password = undefined;
+      }
+      this.form
+        .put("api/profile")
+        .then(() => {
+          Fire.$emit("profileChanges");
+          swal.fire(
+            "Updated",
+            "Your profile has been updated successfully!",
+            "success"
+          );
+          this.$Progress.finish();
+        })
+        .catch(() => {
+          this.$Progress.fail();
+        });
+    },
+
+    updatePhoto(event) {
+      //console.log("uploading");
+      let file = event.target.files[0];
+      console.log(file);
+      let reader = new FileReader();
+      if (file["size"] < 2111775) {
+        reader.onloadend = file => {
+          //console.log("RESULT", reader.result);
+          this.form.photo = reader.result;
+        };
+        reader.readAsDataURL(file);
+      } else {
+        swal.fire({
+          type: "error",
+          title: "Uh oh!",
+          text:
+            "Your image has exceeded the 2MB file limit. Please select another image."
+        });
+      }
+    },
+
+    loadProfile() {
+      axios.get("api/profile").then(({ data }) => this.form.fill(data));
+    }
+  },
+
   mounted() {
     console.log("Component mounted.");
   },
 
   created() {
-    axios.get("api/profile").then(({ data }) => this.form.fill(data));
+    this.loadProfile();
+    Fire.$on("profileChanges", () => {
+      this.loadProfile();
+    });
   }
 };
 </script>

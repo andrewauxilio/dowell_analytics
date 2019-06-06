@@ -36,7 +36,7 @@ class UserController extends Controller
 
         $this->validate($request, [
             'name' => 'required|string|max:191',
-            'type' => 'required|string',
+            'role' => 'required|string',
             'email' => 'required|string|email|max:191|unique:users',
             'password' => 'required|string|min:5',
 
@@ -44,7 +44,9 @@ class UserController extends Controller
 
         return User::create([
             'name' => $request['name'],
-            'type' => $request['type'],
+            'role' => $request['role'],
+            'photo' => $request['photo'],
+            'info' => $request['info'],
             'email' => $request['email'],
             'mobile' => $request['mobile'],
             'password' => Hash::make($request['password']),
@@ -67,6 +69,39 @@ class UserController extends Controller
         return auth('api')->user();
     }
 
+    public function updateProfile(Request $request)
+    {
+        $user = auth('api')->user();
+
+        $this->validate($request, [
+            'name' => 'required|string|max:191',
+            'email' => 'required|string|email|max:191|unique:users,email,' . $user->id,
+            'password' => 'sometimes|min:5',
+        ]);
+
+        $currentPhoto = $user->photo;
+
+        if ($request->photo != $currentPhoto) {
+            $name = time() . '.' . explode('/', explode(':', substr($request->photo, 0, strpos($request->photo, ';')))[1])[1];
+            \Image::make($request->photo)->save(public_path('images/profile/') . $name);
+
+            $request->merge(['photo' => $name]);
+
+            $userPhoto = public_path('images/profile/') . $currentPhoto;
+            if (file_exists($userPhoto)) {
+                @unlink($userPhoto);
+            }
+        };
+
+        if (!empty($request->password)) {
+            $request->merge(['password' => Hash::make($request['password'])]);
+        }
+
+        $user->update($request->all());
+        return ['message' => 'success'];
+        //return ['message' => 'success'];
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -82,7 +117,6 @@ class UserController extends Controller
             'name' => 'required|string|max:191',
             'email' => 'required|string|email|max:191|unique:users,email,' . $user->id,
             'password' => 'sometimes|min:5',
-
         ]);
 
         $user->update($request->all());
@@ -100,6 +134,14 @@ class UserController extends Controller
     {
         //Get User ID
         $user = User::findOrFail($id);
+
+        //Delete User Photo
+        $currentPhoto = $user->photo;
+
+        $userPhoto = public_path('images/profile/') . $currentPhoto;
+        if (file_exists($userPhoto)) {
+            @unlink($userPhoto);
+        }
 
         //Delete User
         $user->delete();
