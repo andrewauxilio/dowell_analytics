@@ -85,6 +85,10 @@ Vue.component(
   require('./components/Charts/SalesFortnightGBGLineChart.vue').default
 )
 Vue.component(
+  'sales-bar-gbg',
+  require('./components/Charts/SalesFortnightGBGBarChart.vue').default
+)
+Vue.component(
   'sales-line-new',
   require('./components/Charts/SalesFortnightNEWLineChart.vue').default
 )
@@ -95,6 +99,18 @@ Vue.component(
 Vue.component(
   'sales-line-smt',
   require('./components/Charts/SalesFortnightSMTLineChart.vue').default
+)
+Vue.component(
+  'sales-bar-new',
+  require('./components/Charts/SalesFortnightNEWBarChart.vue').default
+)
+Vue.component(
+  'sales-bar-now',
+  require('./components/Charts/SalesFortnightNOWBarChart.vue').default
+)
+Vue.component(
+  'sales-bar-smt',
+  require('./components/Charts/SalesFortnightSMTBarChart.vue').default
 )
 
 const router = new VueRouter({

@@ -1,4 +1,7 @@
 <template>
+  <!-------------------------------------->
+  <!----------------Charts---------------->
+  <!-------------------------------------->
   <div class="container-fluid">
     <div class="row">
       <div class="col-12 mt-3">
@@ -7,10 +10,8 @@
             <h3 class="card-title">Totals Sales Over 30 Days - National</h3>
           </div>
           <div class="card-body">
-            <!-- <spinner id="spinner" v-if="isLineLoading"></spinner> -->
             <sales-line-nat></sales-line-nat>
           </div>
-          <!-- /.card-body -->
         </div>
       </div>
 
@@ -22,7 +23,6 @@
           <div class="card-body">
             <sales-line-new></sales-line-new>
           </div>
-          <!-- /.card-body -->
         </div>
       </div>
 
@@ -34,7 +34,6 @@
           <div class="card-body">
             <sales-line-now></sales-line-now>
           </div>
-          <!-- /.card-body -->
         </div>
       </div>
 
@@ -46,19 +45,39 @@
           <div class="card-body">
             <sales-line-smt></sales-line-smt>
           </div>
-          <!-- /.card-body -->
         </div>
       </div>
 
       <div class="col-4 mt-3">
         <div class="card card-primary">
           <div class="card-header">
-            <h3 class="card-title">Bar Chart - Quote Requests</h3>
+            <h3 class="card-title">Newcastle Last Fortnight Sales</h3>
           </div>
           <div class="card-body">
-            <new-quote-requests-bar></new-quote-requests-bar>
+            <sales-bar-new></sales-bar-new>
           </div>
-          <!-- /.card-body -->
+        </div>
+      </div>
+
+      <div class="col-4 mt-3">
+        <div class="card card-primary">
+          <div class="card-header">
+            <h3 class="card-title">Nowra Last Fortnight Sales</h3>
+          </div>
+          <div class="card-body">
+            <sales-bar-now></sales-bar-now>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4 mt-3">
+        <div class="card card-primary">
+          <div class="card-header">
+            <h3 class="card-title">Smithfield Last Fortnight Sales</h3>
+          </div>
+          <div class="card-body">
+            <sales-bar-smt></sales-bar-smt>
+          </div>
         </div>
       </div>
 
@@ -70,7 +89,6 @@
           <div class="card-body">
             <new-quote-requests-pie></new-quote-requests-pie>
           </div>
-          <!-- /.card-body -->
         </div>
       </div>
 
@@ -79,9 +97,7 @@
           <div class="card-header">
             <h3 class="card-title">Quote Requests From All Sites</h3>
           </div>
-          <!-- /.card-header -->
           <div class="card-body table-responsive p-0">
-            <!-- <spinner id="spinner" v-if="isLoading"></spinner> -->
             <table class="table table-hover">
               <tbody>
                 <tr>
@@ -95,9 +111,7 @@
               </tbody>
             </table>
           </div>
-          <!-- /.card-body -->
         </div>
-        <!-- /.card -->
       </div>
     </div>
   </div>
@@ -108,10 +122,6 @@ export default {
   data() {
     return {
       newQuoteRequests: {}
-      // isLoading: true,
-      // isLineLoading: true,
-      // isChartLoading: true,
-      // isPieLoading: true
     };
   },
   methods: {
@@ -122,7 +132,6 @@ export default {
       axios
         .get("api/newQuoteRequest")
         .then(({ data }) => (this.newQuoteRequests = data));
-      // this.isLoading = false;
     }
   },
   created() {

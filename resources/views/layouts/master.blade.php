@@ -1,8 +1,7 @@
 
 <!DOCTYPE html>
 <!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
+This is the main page of the application. All router links are located here.
 -->
 <html lang="en">
 <head>
@@ -65,7 +64,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Sidebar -->
     <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
+      <!-- Sidebar user panel -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
           <img src="./images/profile/{{Auth::user()->photo}}" class="img-circle elevation-2" alt="User Photo">
@@ -75,11 +74,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </div>
       </div>
 
-      <!-- Sidebar Menu -->
+      <!-- 
+        Sidebar Menu - This where the router link are located.
+      -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+         
           <li class="nav-item has-treeview menu">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-user-cog"></i>
@@ -198,44 +198,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </p>
             </router-link>
           </li>
-          {{-- <li class="nav-item">
-            <router-link to="/charts-x" class="nav-link">
-              <i class="nav-icon fas fa-chart-bar"></i>
-              <p>
-                Charts X
-              </p>
-            </router-link>
-          </li>
+          
           <li class="nav-item">
-            <router-link to="/charts-y" class="nav-link">
-              <i class="nav-icon fas fa-chart-line"></i>
-              <p>
-                Charts Y
-              </p>
-            </router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/charts-z" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
-              <p>
-                Charts Z
-              </p>
-            </router-link>
-          </li> --}}
-          <li class="nav-item">
-            
             <a  class="nav-link" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
-
-                  <i class="nav-icon fas fa-power-off"></i>
-                  <p>{{ __('Logout') }}</p>
+                <i class="nav-icon fas fa-power-off"></i>
+                <p>{{ __('Logout') }}</p>
             </a>
 
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
             </form>
-            
           </li>
         </ul>
       </nav>

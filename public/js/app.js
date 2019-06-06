@@ -2187,6 +2187,55 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Charts/SalesFortnightGBGBarChart.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Charts/SalesFortnightGBGBarChart.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_chartjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-chartjs */ "./node_modules/vue-chartjs/es/index.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  "extends": vue_chartjs__WEBPACK_IMPORTED_MODULE_0__["Line"],
+  mounted: function mounted() {
+    var _this = this;
+
+    var Dates = new Array();
+    var Labels = new Array();
+    var Sales = new Array();
+    axios.get("api/GBGSales").then(function (response) {
+      var data = response.data;
+
+      if (data) {
+        data.forEach(function (element) {
+          Dates.push(element.CREATE_DATE);
+          Labels.push(element.CREATE_DATE);
+          Sales.push(element.NETT_SELL_PRICE);
+        });
+
+        _this.renderChart({
+          labels: Dates,
+          datasets: [{
+            label: "Total Sales Over the Past Fortnight",
+            backgroundColor: "rgba(54, 162, 235, 0.7)",
+            data: Sales
+          }]
+        }, {
+          responsive: true,
+          maintainAspectRatio: false
+        });
+      } else {
+        console.log("No data");
+      }
+    });
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Charts/SalesFortnightGBGLineChart.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Charts/SalesFortnightGBGLineChart.vue?vue&type=script&lang=js& ***!
@@ -2287,6 +2336,55 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Charts/SalesFortnightNEWBarChart.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Charts/SalesFortnightNEWBarChart.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_chartjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-chartjs */ "./node_modules/vue-chartjs/es/index.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  "extends": vue_chartjs__WEBPACK_IMPORTED_MODULE_0__["Bar"],
+  mounted: function mounted() {
+    var _this = this;
+
+    var Dates = new Array();
+    var Labels = new Array();
+    var Sales = new Array();
+    axios.get("api/NEWSales").then(function (response) {
+      var data = response.data;
+
+      if (data) {
+        data.forEach(function (element) {
+          Dates.push(element.CREATE_DATE);
+          Labels.push(element.CREATE_DATE);
+          Sales.push(element.NETT_SELL_PRICE);
+        });
+
+        _this.renderChart({
+          labels: Dates,
+          datasets: [{
+            label: "Total Sales Over the Past Fortnight",
+            backgroundColor: "rgba(54, 162, 235, 0.7)",
+            data: Sales
+          }]
+        }, {
+          responsive: true,
+          maintainAspectRatio: false
+        });
+      } else {
+        console.log("No data");
+      }
+    });
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Charts/SalesFortnightNEWLineChart.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Charts/SalesFortnightNEWLineChart.vue?vue&type=script&lang=js& ***!
@@ -2337,6 +2435,55 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Charts/SalesFortnightNOWBarChart.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Charts/SalesFortnightNOWBarChart.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_chartjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-chartjs */ "./node_modules/vue-chartjs/es/index.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  "extends": vue_chartjs__WEBPACK_IMPORTED_MODULE_0__["Bar"],
+  mounted: function mounted() {
+    var _this = this;
+
+    var Dates = new Array();
+    var Labels = new Array();
+    var Sales = new Array();
+    axios.get("api/NOWSales").then(function (response) {
+      var data = response.data;
+
+      if (data) {
+        data.forEach(function (element) {
+          Dates.push(element.CREATE_DATE);
+          Labels.push(element.CREATE_DATE);
+          Sales.push(element.NETT_SELL_PRICE);
+        });
+
+        _this.renderChart({
+          labels: Dates,
+          datasets: [{
+            label: "Total Sales Over the Past Fortnight",
+            backgroundColor: "rgba(54, 162, 235, 0.7)",
+            data: Sales
+          }]
+        }, {
+          responsive: true,
+          maintainAspectRatio: false
+        });
+      } else {
+        console.log("No data");
+      }
+    });
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Charts/SalesFortnightNOWLineChart.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Charts/SalesFortnightNOWLineChart.vue?vue&type=script&lang=js& ***!
@@ -2373,6 +2520,55 @@ __webpack_require__.r(__webpack_exports__);
             borderColor: "#8e5ea2",
             data: Sales,
             fill: true
+          }]
+        }, {
+          responsive: true,
+          maintainAspectRatio: false
+        });
+      } else {
+        console.log("No data");
+      }
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Charts/SalesFortnightSMTBarChart.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Charts/SalesFortnightSMTBarChart.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_chartjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-chartjs */ "./node_modules/vue-chartjs/es/index.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  "extends": vue_chartjs__WEBPACK_IMPORTED_MODULE_0__["Bar"],
+  mounted: function mounted() {
+    var _this = this;
+
+    var Dates = new Array();
+    var Labels = new Array();
+    var Sales = new Array();
+    axios.get("api/SMTSales").then(function (response) {
+      var data = response.data;
+
+      if (data) {
+        data.forEach(function (element) {
+          Dates.push(element.CREATE_DATE);
+          Labels.push(element.CREATE_DATE);
+          Sales.push(element.NETT_SELL_PRICE);
+        });
+
+        _this.renderChart({
+          labels: Dates,
+          datasets: [{
+            label: "Total Sales Over the Past Fortnight",
+            backgroundColor: "rgba(54, 162, 235, 0.7)",
+            data: Sales
           }]
         }, {
           responsive: true,
@@ -2610,14 +2806,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      newQuoteRequests: {} // isLoading: true,
-      // isLineLoading: true,
-      // isChartLoading: true,
-      // isPieLoading: true
-
+      newQuoteRequests: {}
     };
   },
   methods: {
@@ -2630,7 +2836,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.get("api/newQuoteRequest").then(function (_ref) {
         var data = _ref.data;
         return _this.newQuoteRequests = data;
-      }); // this.isLoading = false;
+      });
     }
   },
   created: function created() {
@@ -77054,18 +77260,29 @@ var render = function() {
         _c("div", { staticClass: "card card-primary" }, [
           _vm._m(4),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "card-body" },
-            [_c("new-quote-requests-bar")],
-            1
-          )
+          _c("div", { staticClass: "card-body" }, [_c("sales-bar-new")], 1)
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-4 mt-3" }, [
+        _c("div", { staticClass: "card card-primary" }, [
+          _vm._m(5),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [_c("sales-bar-now")], 1)
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-4 mt-3" }, [
+        _c("div", { staticClass: "card card-primary" }, [
+          _vm._m(6),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [_c("sales-bar-smt")], 1)
         ])
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "col-4 mt-3" }, [
         _c("div", { staticClass: "card" }, [
-          _vm._m(5),
+          _vm._m(7),
           _vm._v(" "),
           _c(
             "div",
@@ -77078,14 +77295,14 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "col-4 mt-3" }, [
         _c("div", { staticClass: "card" }, [
-          _vm._m(6),
+          _vm._m(8),
           _vm._v(" "),
           _c("div", { staticClass: "card-body table-responsive p-0" }, [
             _c("table", { staticClass: "table table-hover" }, [
               _c(
                 "tbody",
                 [
-                  _vm._m(7),
+                  _vm._m(9),
                   _vm._v(" "),
                   _vm._l(_vm.newQuoteRequests, function(newQuoteRequest) {
                     return _c("tr", { key: newQuoteRequest.id }, [
@@ -77175,7 +77392,27 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
       _c("h3", { staticClass: "card-title" }, [
-        _vm._v("Bar Chart - Quote Requests")
+        _vm._v("Newcastle Last Fortnight Sales")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("h3", { staticClass: "card-title" }, [
+        _vm._v("Nowra Last Fortnight Sales")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("h3", { staticClass: "card-title" }, [
+        _vm._v("Smithfield Last Fortnight Sales")
       ])
     ])
   },
@@ -94025,6 +94262,56 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Charts/SalesFortnightGBGBarChart.vue":
+/*!**********************************************************************!*\
+  !*** ./resources/js/components/Charts/SalesFortnightGBGBarChart.vue ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SalesFortnightGBGBarChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SalesFortnightGBGBarChart.vue?vue&type=script&lang=js& */ "./resources/js/components/Charts/SalesFortnightGBGBarChart.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  _SalesFortnightGBGBarChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"],
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Charts/SalesFortnightGBGBarChart.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Charts/SalesFortnightGBGBarChart.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/Charts/SalesFortnightGBGBarChart.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SalesFortnightGBGBarChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./SalesFortnightGBGBarChart.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Charts/SalesFortnightGBGBarChart.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SalesFortnightGBGBarChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/Charts/SalesFortnightGBGLineChart.vue":
 /*!***********************************************************************!*\
   !*** ./resources/js/components/Charts/SalesFortnightGBGLineChart.vue ***!
@@ -94125,6 +94412,56 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Charts/SalesFortnightNEWBarChart.vue":
+/*!**********************************************************************!*\
+  !*** ./resources/js/components/Charts/SalesFortnightNEWBarChart.vue ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SalesFortnightNEWBarChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SalesFortnightNEWBarChart.vue?vue&type=script&lang=js& */ "./resources/js/components/Charts/SalesFortnightNEWBarChart.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  _SalesFortnightNEWBarChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"],
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Charts/SalesFortnightNEWBarChart.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Charts/SalesFortnightNEWBarChart.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/Charts/SalesFortnightNEWBarChart.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SalesFortnightNEWBarChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./SalesFortnightNEWBarChart.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Charts/SalesFortnightNEWBarChart.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SalesFortnightNEWBarChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/Charts/SalesFortnightNEWLineChart.vue":
 /*!***********************************************************************!*\
   !*** ./resources/js/components/Charts/SalesFortnightNEWLineChart.vue ***!
@@ -94175,6 +94512,56 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Charts/SalesFortnightNOWBarChart.vue":
+/*!**********************************************************************!*\
+  !*** ./resources/js/components/Charts/SalesFortnightNOWBarChart.vue ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SalesFortnightNOWBarChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SalesFortnightNOWBarChart.vue?vue&type=script&lang=js& */ "./resources/js/components/Charts/SalesFortnightNOWBarChart.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  _SalesFortnightNOWBarChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"],
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Charts/SalesFortnightNOWBarChart.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Charts/SalesFortnightNOWBarChart.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/Charts/SalesFortnightNOWBarChart.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SalesFortnightNOWBarChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./SalesFortnightNOWBarChart.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Charts/SalesFortnightNOWBarChart.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SalesFortnightNOWBarChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/Charts/SalesFortnightNOWLineChart.vue":
 /*!***********************************************************************!*\
   !*** ./resources/js/components/Charts/SalesFortnightNOWLineChart.vue ***!
@@ -94222,6 +94609,56 @@ component.options.__file = "resources/js/components/Charts/SalesFortnightNOWLine
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SalesFortnightNOWLineChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./SalesFortnightNOWLineChart.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Charts/SalesFortnightNOWLineChart.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SalesFortnightNOWLineChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Charts/SalesFortnightSMTBarChart.vue":
+/*!**********************************************************************!*\
+  !*** ./resources/js/components/Charts/SalesFortnightSMTBarChart.vue ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SalesFortnightSMTBarChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SalesFortnightSMTBarChart.vue?vue&type=script&lang=js& */ "./resources/js/components/Charts/SalesFortnightSMTBarChart.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  _SalesFortnightSMTBarChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"],
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Charts/SalesFortnightSMTBarChart.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Charts/SalesFortnightSMTBarChart.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/Charts/SalesFortnightSMTBarChart.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SalesFortnightSMTBarChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./SalesFortnightSMTBarChart.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Charts/SalesFortnightSMTBarChart.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SalesFortnightSMTBarChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -95317,9 +95754,13 @@ Vue.component('new-quote-requests-bar', __webpack_require__(/*! ./components/Cha
 Vue.component('new-quote-requests-pie', __webpack_require__(/*! ./components/Charts/NewQuoteRequestsPieChart.vue */ "./resources/js/components/Charts/NewQuoteRequestsPieChart.vue")["default"]);
 Vue.component('sales-line-nat', __webpack_require__(/*! ./components/Charts/SalesFortnightNATLineChart.vue */ "./resources/js/components/Charts/SalesFortnightNATLineChart.vue")["default"]);
 Vue.component('sales-line-gbg', __webpack_require__(/*! ./components/Charts/SalesFortnightGBGLineChart.vue */ "./resources/js/components/Charts/SalesFortnightGBGLineChart.vue")["default"]);
+Vue.component('sales-bar-gbg', __webpack_require__(/*! ./components/Charts/SalesFortnightGBGBarChart.vue */ "./resources/js/components/Charts/SalesFortnightGBGBarChart.vue")["default"]);
 Vue.component('sales-line-new', __webpack_require__(/*! ./components/Charts/SalesFortnightNEWLineChart.vue */ "./resources/js/components/Charts/SalesFortnightNEWLineChart.vue")["default"]);
 Vue.component('sales-line-now', __webpack_require__(/*! ./components/Charts/SalesFortnightNOWLineChart.vue */ "./resources/js/components/Charts/SalesFortnightNOWLineChart.vue")["default"]);
 Vue.component('sales-line-smt', __webpack_require__(/*! ./components/Charts/SalesFortnightSMTLineChart.vue */ "./resources/js/components/Charts/SalesFortnightSMTLineChart.vue")["default"]);
+Vue.component('sales-bar-new', __webpack_require__(/*! ./components/Charts/SalesFortnightNEWBarChart.vue */ "./resources/js/components/Charts/SalesFortnightNEWBarChart.vue")["default"]);
+Vue.component('sales-bar-now', __webpack_require__(/*! ./components/Charts/SalesFortnightNOWBarChart.vue */ "./resources/js/components/Charts/SalesFortnightNOWBarChart.vue")["default"]);
+Vue.component('sales-bar-smt', __webpack_require__(/*! ./components/Charts/SalesFortnightSMTBarChart.vue */ "./resources/js/components/Charts/SalesFortnightSMTBarChart.vue")["default"]);
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
   mode: 'history',
   routes: routes,
