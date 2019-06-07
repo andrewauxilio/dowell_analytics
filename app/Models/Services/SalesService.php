@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Procedures\Services;
+namespace App\Models\Services;
 
-use App\Procedures\Repositories\SalesRepository;
+use App\Models\Repositories\SalesRepository;
 
 class SalesService
 {

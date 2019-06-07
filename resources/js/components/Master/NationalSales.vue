@@ -15,7 +15,7 @@
         </div>
       </div>
 
-      <div class="col-4 mt-3">
+      <div class="col-md-4 col-sm-6 col-12 mt-3">
         <div class="card card-primary">
           <div class="card-header" id="line-chart">
             <h3 class="card-title">Newcastle Last Fortnight Sales</h3>
@@ -26,7 +26,7 @@
         </div>
       </div>
 
-      <div class="col-4 mt-3">
+      <!-- <div class="col-4 mt-3">
         <div class="card card-primary">
           <div class="card-header" id="line-chart">
             <h3 class="card-title">Nowra Last Fortnight Sales</h3>
@@ -46,9 +46,9 @@
             <sales-line-smt></sales-line-smt>
           </div>
         </div>
-      </div>
+      </div>-->
 
-      <div class="col-4 mt-3">
+      <div class="col-md-4 col-sm-6 col-12 mt-3">
         <div class="card card-primary">
           <div class="card-header">
             <h3 class="card-title">Newcastle Last Fortnight Sales</h3>
@@ -59,7 +59,7 @@
         </div>
       </div>
 
-      <div class="col-4 mt-3">
+      <!-- <div class="col-4 mt-3">
         <div class="card card-primary">
           <div class="card-header">
             <h3 class="card-title">Nowra Last Fortnight Sales</h3>
@@ -79,9 +79,9 @@
             <sales-bar-smt></sales-bar-smt>
           </div>
         </div>
-      </div>
+      </div>-->
 
-      <div class="col-4 mt-3">
+      <div class="col-md-4 col-sm-6 col-12 mt-3">
         <div class="card">
           <div class="card-header" id="pie-chart">
             <h3 class="card-title">Quote Requests -Pie Chart</h3>
@@ -92,7 +92,7 @@
         </div>
       </div>
 
-      <div class="col-4 mt-3">
+      <div class="col-md-4 col-sm-6 col-12 mt-3">
         <div class="card">
           <div class="card-header">
             <h3 class="card-title">Quote Requests From All Sites</h3>
@@ -105,14 +105,77 @@
                   <th class="number">Number of Requests</th>
                 </tr>
                 <tr v-for="newQuoteRequest in newQuoteRequests" :key="newQuoteRequest.id">
-                  <td class="site">{{ newQuoteRequest.SalesLocation | toLongName }}</td>
+                  <td class="site">{{ newQuoteRequest.location | toLongName }}</td>
                   <td class="number">{{ newQuoteRequest.Quantity }}</td>
+                </tr>
+                <tr
+                  v-for="newQuoteRequestsTotals in newQuoteRequestsTotal"
+                  :key="newQuoteRequestsTotals.id"
+                >
+                  <th class="site">Total</th>
+                  <td class="number">{{ newQuoteRequestsTotals.Quantity }}</td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
       </div>
+
+      <div
+        class="col-md-2 col-sm-4 col-6 mt-3"
+        v-for="newQuoteRequest in newQuoteRequests"
+        :key="newQuoteRequest.id"
+      >
+        <div class="info-box">
+          <span class="info-box-icon bg-success">
+            <i class="fas fa-file-contract"></i>
+          </span>
+
+          <div class="info-box-content">
+            <span class="info-box-text">{{ newQuoteRequest.location }} QRs</span>
+            <span class="info-box-number">{{ newQuoteRequest.Quantity }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="col-md-2 col-sm-4 col-6 mt-3">
+        <div class="info-box">
+          <span class="info-box-icon bg-success">
+            <i class="fas fa-file-contract"></i>
+          </span>
+
+          <div class="info-box-content">
+            <span class="info-box-text">ELI Quote Requests</span>
+            <span class="info-box-number">7</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-2 col-sm-4 col-6 mt-3">
+        <div class="info-box">
+          <span class="info-box-icon bg-success">
+            <i class="fas fa-file-contract"></i>
+          </span>
+
+          <div class="info-box-content">
+            <span class="info-box-text">BAY Quote Requests</span>
+            <span class="info-box-number">4</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-2 col-sm-4 col-6 mt-3">
+        <div class="info-box">
+          <span class="info-box-icon bg-success">
+            <i class="fas fa-file-contract"></i>
+          </span>
+
+          <div class="info-box-content">
+            <span class="info-box-text">NEW Quote Requests</span>
+            <span class="info-box-number">7</span>
+          </div>
+        </div>
+      </div>-->
     </div>
   </div>
 </template>
@@ -121,7 +184,8 @@
 export default {
   data() {
     return {
-      newQuoteRequests: {}
+      newQuoteRequests: {},
+      newQuoteRequestsTotal: {}
     };
   },
   methods: {
@@ -130,14 +194,17 @@ export default {
     //--------------------------------------//
     loadQuoteRequests() {
       axios
-        .get("api/newQuoteRequest")
+        .get("api/NATQuoteRequests")
         .then(({ data }) => (this.newQuoteRequests = data));
+      axios
+        .get("api/NATTotalQuoteRequests")
+        .then(({ data }) => (this.newQuoteRequestsTotal = data));
     }
   },
   created() {
     this.loadQuoteRequests();
     //setInterval(() => this.loadQuoteRequests(), 3000);
-    axios.get("api/SalesController");
+    //axios.get("api/SalesController");
   },
   mounted() {
     console.log("Component mounted.");

@@ -8,12 +8,12 @@ export default {
     let SalesLocation = new Array();
     let Labels = new Array();
     let Quantity = new Array();
-    axios.get("api/newQuoteRequest").then(response => {
+    axios.get("api/NATQuoteRequests").then(response => {
       let data = response.data;
       if (data) {
         data.forEach(element => {
-          SalesLocation.push(element.SalesLocation);
-          Labels.push(element.SalesLocation);
+          SalesLocation.push(element.location);
+          Labels.push(element.location);
           Quantity.push(element.Quantity);
         });
         this.renderChart(

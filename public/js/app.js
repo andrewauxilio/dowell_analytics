@@ -2155,13 +2155,13 @@ __webpack_require__.r(__webpack_exports__);
     var SalesLocation = new Array();
     var Labels = new Array();
     var Quantity = new Array();
-    axios.get("api/newQuoteRequest").then(function (response) {
+    axios.get("api/NATQuoteRequests").then(function (response) {
       var data = response.data;
 
       if (data) {
         data.forEach(function (element) {
-          SalesLocation.push(element.SalesLocation);
-          Labels.push(element.SalesLocation);
+          SalesLocation.push(element.location);
+          Labels.push(element.location);
           Quantity.push(element.Quantity);
         });
 
@@ -2820,10 +2820,74 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      newQuoteRequests: {}
+      newQuoteRequests: {},
+      newQuoteRequestsTotal: {}
     };
   },
   methods: {
@@ -2833,16 +2897,19 @@ __webpack_require__.r(__webpack_exports__);
     loadQuoteRequests: function loadQuoteRequests() {
       var _this = this;
 
-      axios.get("api/newQuoteRequest").then(function (_ref) {
+      axios.get("api/NATQuoteRequests").then(function (_ref) {
         var data = _ref.data;
         return _this.newQuoteRequests = data;
+      });
+      axios.get("api/NATTotalQuoteRequests").then(function (_ref2) {
+        var data = _ref2.data;
+        return _this.newQuoteRequestsTotal = data;
       });
     }
   },
   created: function created() {
     this.loadQuoteRequests(); //setInterval(() => this.loadQuoteRequests(), 3000);
-
-    axios.get("api/SalesController");
+    //axios.get("api/SalesController");
   },
   mounted: function mounted() {
     console.log("Component mounted.");
@@ -77223,110 +77290,120 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container-fluid" }, [
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-12 mt-3" }, [
-        _c("div", { staticClass: "card card-primary" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [_c("sales-line-nat")], 1)
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-4 mt-3" }, [
-        _c("div", { staticClass: "card card-primary" }, [
-          _vm._m(1),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [_c("sales-line-new")], 1)
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-4 mt-3" }, [
-        _c("div", { staticClass: "card card-primary" }, [
-          _vm._m(2),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [_c("sales-line-now")], 1)
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-4 mt-3" }, [
-        _c("div", { staticClass: "card card-primary" }, [
-          _vm._m(3),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [_c("sales-line-smt")], 1)
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-4 mt-3" }, [
-        _c("div", { staticClass: "card card-primary" }, [
-          _vm._m(4),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [_c("sales-bar-new")], 1)
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-4 mt-3" }, [
-        _c("div", { staticClass: "card card-primary" }, [
-          _vm._m(5),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [_c("sales-bar-now")], 1)
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-4 mt-3" }, [
-        _c("div", { staticClass: "card card-primary" }, [
-          _vm._m(6),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [_c("sales-bar-smt")], 1)
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-4 mt-3" }, [
-        _c("div", { staticClass: "card" }, [
-          _vm._m(7),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "card-body" },
-            [_c("new-quote-requests-pie")],
-            1
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-4 mt-3" }, [
-        _c("div", { staticClass: "card" }, [
-          _vm._m(8),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body table-responsive p-0" }, [
-            _c("table", { staticClass: "table table-hover" }, [
-              _c(
-                "tbody",
-                [
-                  _vm._m(9),
-                  _vm._v(" "),
-                  _vm._l(_vm.newQuoteRequests, function(newQuoteRequest) {
-                    return _c("tr", { key: newQuoteRequest.id }, [
-                      _c("td", { staticClass: "site" }, [
-                        _vm._v(
-                          _vm._s(
-                            _vm._f("toLongName")(newQuoteRequest.SalesLocation)
+    _c(
+      "div",
+      { staticClass: "row" },
+      [
+        _c("div", { staticClass: "col-12 mt-3" }, [
+          _c("div", { staticClass: "card card-primary" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body" }, [_c("sales-line-nat")], 1)
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-4 col-sm-6 col-12 mt-3" }, [
+          _c("div", { staticClass: "card card-primary" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body" }, [_c("sales-line-new")], 1)
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-4 col-sm-6 col-12 mt-3" }, [
+          _c("div", { staticClass: "card card-primary" }, [
+            _vm._m(2),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body" }, [_c("sales-bar-new")], 1)
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-4 col-sm-6 col-12 mt-3" }, [
+          _c("div", { staticClass: "card" }, [
+            _vm._m(3),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "card-body" },
+              [_c("new-quote-requests-pie")],
+              1
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-4 col-sm-6 col-12 mt-3" }, [
+          _c("div", { staticClass: "card" }, [
+            _vm._m(4),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body table-responsive p-0" }, [
+              _c("table", { staticClass: "table table-hover" }, [
+                _c(
+                  "tbody",
+                  [
+                    _vm._m(5),
+                    _vm._v(" "),
+                    _vm._l(_vm.newQuoteRequests, function(newQuoteRequest) {
+                      return _c("tr", { key: newQuoteRequest.id }, [
+                        _c("td", { staticClass: "site" }, [
+                          _vm._v(
+                            _vm._s(
+                              _vm._f("toLongName")(newQuoteRequest.location)
+                            )
                           )
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("td", { staticClass: "number" }, [
-                        _vm._v(_vm._s(newQuoteRequest.Quantity))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "number" }, [
+                          _vm._v(_vm._s(newQuoteRequest.Quantity))
+                        ])
                       ])
-                    ])
-                  })
-                ],
-                2
-              )
+                    }),
+                    _vm._v(" "),
+                    _vm._l(_vm.newQuoteRequestsTotal, function(
+                      newQuoteRequestsTotals
+                    ) {
+                      return _c("tr", { key: newQuoteRequestsTotals.id }, [
+                        _c("th", { staticClass: "site" }, [_vm._v("Total")]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "number" }, [
+                          _vm._v(_vm._s(newQuoteRequestsTotals.Quantity))
+                        ])
+                      ])
+                    })
+                  ],
+                  2
+                )
+              ])
             ])
           ])
-        ])
-      ])
-    ])
+        ]),
+        _vm._v(" "),
+        _vm._l(_vm.newQuoteRequests, function(newQuoteRequest) {
+          return _c(
+            "div",
+            {
+              key: newQuoteRequest.id,
+              staticClass: "col-md-2 col-sm-4 col-6 mt-3"
+            },
+            [
+              _c("div", { staticClass: "info-box" }, [
+                _vm._m(6, true),
+                _vm._v(" "),
+                _c("div", { staticClass: "info-box-content" }, [
+                  _c("span", { staticClass: "info-box-text" }, [
+                    _vm._v(_vm._s(newQuoteRequest.location) + " QRs")
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "info-box-number" }, [
+                    _vm._v(_vm._s(newQuoteRequest.Quantity))
+                  ])
+                ])
+              ])
+            ]
+          )
+        })
+      ],
+      2
+    )
   ])
 }
 var staticRenderFns = [
@@ -77362,57 +77439,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "card-header", attrs: { id: "line-chart" } },
-      [
-        _c("h3", { staticClass: "card-title" }, [
-          _vm._v("Nowra Last Fortnight Sales")
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "card-header", attrs: { id: "line-chart" } },
-      [
-        _c("h3", { staticClass: "card-title" }, [
-          _vm._v("Smithfield Last Fortnight Sales")
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
       _c("h3", { staticClass: "card-title" }, [
         _vm._v("Newcastle Last Fortnight Sales")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h3", { staticClass: "card-title" }, [
-        _vm._v("Nowra Last Fortnight Sales")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h3", { staticClass: "card-title" }, [
-        _vm._v("Smithfield Last Fortnight Sales")
       ])
     ])
   },
@@ -77448,6 +77477,14 @@ var staticRenderFns = [
       _c("th", { staticClass: "site" }, [_vm._v("Site")]),
       _vm._v(" "),
       _c("th", { staticClass: "number" }, [_vm._v("Number of Requests")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "info-box-icon bg-success" }, [
+      _c("i", { staticClass: "fas fa-file-contract" })
     ])
   }
 ]

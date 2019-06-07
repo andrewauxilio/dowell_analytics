@@ -19,12 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::apiResources([
     'user' => 'API\UserController',
-    'newQuoteRequest' => 'API\NewQuoteRequestController',
-    'SalesFortnightGBG' => 'API\SalesFortnightGBGController',
-    'SalesFortnightNEW' => 'API\SalesFortnightNEWController',
-    'SalesFortnightNOW' => 'API\SalesFortnightNOWController',
-    'SalesFortnightSMT' => 'API\SalesFortnightSMTController',
-    'SalesNAT' => 'API\SalesController',
 ]);
 
 Route::get('profile', 'API\UserController@profile');
@@ -36,3 +30,7 @@ Route::get('GBGSales', 'API\SalesController@getGBGSales');
 Route::get('NEWSales', 'API\SalesController@getNEWSales');
 Route::get('NOWSales', 'API\SalesController@getNOWSales');
 Route::get('SMTSales', 'API\SalesController@getSMTSales');
+
+//New Quote Request
+Route::get('NATQuoteRequests', 'API\NewQuoteRequestsController@getNATQuoteRequests');
+Route::get('NATTotalQuoteRequests', 'API\NewQuoteRequestsController@getNATTotalQuoteRequests');
