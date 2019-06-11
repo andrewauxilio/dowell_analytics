@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
-    <div class="row mt-3">
-      <div class="col-md-3">
+    <div class="row">
+      <div class="col-md-3 mt-3">
         <!-- Profile Image -->
         <div class="card card-primary card-outline">
           <div class="card-body box-profile">
@@ -65,7 +65,7 @@
         <!-- /.card -->
       </div>
       <!-- /.col -->
-      <div class="col-md-9">
+      <div class="col-md-9 mt-3">
         <div class="card">
           <div class="card-header p-2">Account Settings</div>
           <!-- /.card-header -->

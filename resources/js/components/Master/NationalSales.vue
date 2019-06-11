@@ -10,7 +10,10 @@
             <h3 class="card-title">Totals Sales Over 30 Days - National</h3>
           </div>
           <div class="card-body">
-            <sales-line-nat></sales-line-nat>
+            <div class="d-flex justify-content-center">
+              <self-building-square-spinner v-if="loading" :size="40" color="#8e5ea2"/>
+            </div>
+            <sales-line-nat v-if="!loading"></sales-line-nat>
           </div>
         </div>
       </div>
@@ -21,7 +24,10 @@
             <h3 class="card-title">Newcastle Last Fortnight Sales</h3>
           </div>
           <div class="card-body">
-            <sales-line-new></sales-line-new>
+            <div class="d-flex justify-content-center">
+              <self-building-square-spinner v-if="loading" :size="40" color="#8e5ea2"/>
+            </div>
+            <sales-line-new v-if="!loading"></sales-line-new>
           </div>
         </div>
       </div>
@@ -54,7 +60,10 @@
             <h3 class="card-title">Newcastle Last Fortnight Sales</h3>
           </div>
           <div class="card-body">
-            <sales-bar-new></sales-bar-new>
+            <div class="d-flex justify-content-center">
+              <self-building-square-spinner v-if="loading" :size="40" color="#007BFF"/>
+            </div>
+            <sales-bar-new v-if="!loading"></sales-bar-new>
           </div>
         </div>
       </div>
@@ -87,7 +96,10 @@
             <h3 class="card-title">Quote Requests -Pie Chart</h3>
           </div>
           <div class="card-body">
-            <new-quote-requests-pie></new-quote-requests-pie>
+            <div class="d-flex justify-content-center">
+              <self-building-square-spinner v-if="loading" :size="40" color="#17A2B8"/>
+            </div>
+            <new-quote-requests-pie v-if="!loading"></new-quote-requests-pie>
           </div>
         </div>
       </div>
@@ -97,7 +109,12 @@
           <div class="card-header">
             <h3 class="card-title">Quote Requests From All Sites</h3>
           </div>
-          <div class="card-body table-responsive p-0">
+          <div v-if="loading" class="card-body">
+            <div class="d-flex justify-content-center">
+              <self-building-square-spinner :size="40" color="#C6C7C8"/>
+            </div>
+          </div>
+          <div v-if="!loading" class="card-body table-responsive p-0">
             <table class="table table-hover">
               <tbody>
                 <tr>
@@ -137,58 +154,27 @@
           </div>
         </div>
       </div>
-
-      <!-- <div class="col-md-2 col-sm-4 col-6 mt-3">
-        <div class="info-box">
-          <span class="info-box-icon bg-success">
-            <i class="fas fa-file-contract"></i>
-          </span>
-
-          <div class="info-box-content">
-            <span class="info-box-text">ELI Quote Requests</span>
-            <span class="info-box-number">7</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-2 col-sm-4 col-6 mt-3">
-        <div class="info-box">
-          <span class="info-box-icon bg-success">
-            <i class="fas fa-file-contract"></i>
-          </span>
-
-          <div class="info-box-content">
-            <span class="info-box-text">BAY Quote Requests</span>
-            <span class="info-box-number">4</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-2 col-sm-4 col-6 mt-3">
-        <div class="info-box">
-          <span class="info-box-icon bg-success">
-            <i class="fas fa-file-contract"></i>
-          </span>
-
-          <div class="info-box-content">
-            <span class="info-box-text">NEW Quote Requests</span>
-            <span class="info-box-number">7</span>
-          </div>
-        </div>
-      </div>-->
     </div>
   </div>
 </template>
 
 <script>
+import { SelfBuildingSquareSpinner } from "epic-spinners";
 export default {
+  components: {
+    SelfBuildingSquareSpinner
+  },
   data() {
     return {
+      loading: true,
       newQuoteRequests: {},
       newQuoteRequestsTotal: {}
     };
   },
   methods: {
+    loadingAnimation() {
+      this.loading = false;
+    },
     //--------------------------------------//
     //--------Load New Quote Requests-------//
     //--------------------------------------//
@@ -203,6 +189,7 @@ export default {
   },
   created() {
     this.loadQuoteRequests();
+    setTimeout(this.loadingAnimation, 3000);
     //setInterval(() => this.loadQuoteRequests(), 3000);
     //axios.get("api/SalesController");
   },

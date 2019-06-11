@@ -31,15 +31,15 @@ This is the main page of the application. All router links are located here.
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
+        <router-link to="/welcome" class="nav-link">Home</router-link>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
+        <router-link to="/contact" class="nav-link">Contact</router-link>
       </li>
     </ul>
 
     <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
+    {{-- <form class="form-inline ml-3">
       <div class="input-group input-group-sm">
         <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
         <div class="input-group-append">
@@ -48,7 +48,7 @@ This is the main page of the application. All router links are located here.
           </button>
         </div>
       </div>
-    </form>
+    </form> --}}
 
   </nav>
   <!-- /.navbar -->
@@ -225,6 +225,7 @@ This is the main page of the application. All router links are located here.
     <div class="content">
       <div class="container-fluid">
           <router-view></router-view>
+          <vue-progress-bar></vue-progress-bar>
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->
@@ -235,7 +236,7 @@ This is the main page of the application. All router links are located here.
   <footer class="main-footer">
     <!-- To the right -->
     <div class="float-right d-none d-sm-inline">
-      Contact Details Here.
+      <router-link to="/contact">Contact Us</router-link>
     </div>
     <!-- Default to the left -->
     <strong>Copyright &copy; 2019 <a href="https://dowell.com.au">Dowell</a> National Information Technology Team.</strong> All rights reserved.
