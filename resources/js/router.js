@@ -14,15 +14,10 @@ let routes = [
     path: '/contact',
     component: require('./components/Contact.vue').default
   },
-  // Not Found Page
+  // Welcome Page
   {
     path: '/welcome',
     component: require('./components/Welcome.vue').default
-  },
-  // Not Found Page
-  {
-    path: '/page-not-found',
-    component: require('./components/PageNotFound.vue').default
   },
   // Admin Tab Routes
   {
@@ -62,6 +57,11 @@ let routes = [
   {
     path: '/manager-sa',
     component: require('./components/StateSA/Manager.vue').default
+  },
+  // Not Found Page
+  {
+    path: '*',
+    component: require('./components/PageNotFound.vue').default
   }
 ]
 
