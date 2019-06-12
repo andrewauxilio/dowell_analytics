@@ -28,9 +28,21 @@ class SalesController extends Controller
         return $data;
     }
 
+    public function getQLDSales(Request $request)
+    {
+        $data = $this->SalesService->getQLDSales($request);
+        return $data;
+    }
+
     public function getGBGSales(Request $request)
     {
         $data = $this->SalesService->getGBGSales($request);
+        return $data;
+    }
+
+    public function getNSWSales(Request $request)
+    {
+        $data = $this->SalesService->getNSWSales($request);
         return $data;
     }
 

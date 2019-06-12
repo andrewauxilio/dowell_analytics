@@ -87,47 +87,69 @@ Vue.component(
 )
 Vue.component(
   'new-quote-requests-bar',
-  require('./components/Charts/NewQuoteRequestsBarChart.vue').default
+  require('./components/Charts/NewQuoteRequests/NewQuoteRequestsBarChart.vue')
+    .default
 )
 Vue.component(
   'new-quote-requests-pie',
-  require('./components/Charts/NewQuoteRequestsPieChart.vue').default
+  require('./components/Charts/NewQuoteRequests/NewQuoteRequestsPieChart.vue')
+    .default
 )
 Vue.component(
   'sales-line-nat',
-  require('./components/Charts/SalesFortnightNATLineChart.vue').default
+  require('./components/Charts/Sales/SalesFortnightNATLineChart.vue').default
+)
+// QLD
+Vue.component(
+  'sales-line-qld',
+  require('./components/Charts/Sales/SalesFortnightQLDLineChart.vue').default
 )
 Vue.component(
   'sales-line-gbg',
-  require('./components/Charts/SalesFortnightGBGLineChart.vue').default
+  require('./components/Charts/Sales/SalesFortnightGBGLineChart.vue').default
 )
 Vue.component(
   'sales-bar-gbg',
-  require('./components/Charts/SalesFortnightGBGBarChart.vue').default
+  require('./components/Charts/Sales/SalesFortnightGBGBarChart.vue').default
+)
+Vue.component(
+  'qr-pie-qld',
+  require('./components/Charts/NewQuoteRequests/NewQuoteRequestsQLD.vue')
+    .default
+)
+// NSW
+Vue.component(
+  'sales-line-nsw',
+  require('./components/Charts/Sales/SalesFortnightNSWLineChart.vue').default
 )
 Vue.component(
   'sales-line-new',
-  require('./components/Charts/SalesFortnightNEWLineChart.vue').default
+  require('./components/Charts/Sales/SalesFortnightNEWLineChart.vue').default
 )
 Vue.component(
   'sales-line-now',
-  require('./components/Charts/SalesFortnightNOWLineChart.vue').default
+  require('./components/Charts/Sales/SalesFortnightNOWLineChart.vue').default
 )
 Vue.component(
   'sales-line-smt',
-  require('./components/Charts/SalesFortnightSMTLineChart.vue').default
+  require('./components/Charts/Sales/SalesFortnightSMTLineChart.vue').default
+)
+Vue.component(
+  'qr-pie-nsw',
+  require('./components/Charts/NewQuoteRequests/NewQuoteRequestsNSW.vue')
+    .default
 )
 Vue.component(
   'sales-bar-new',
-  require('./components/Charts/SalesFortnightNEWBarChart.vue').default
+  require('./components/Charts/Sales/SalesFortnightNEWBarChart.vue').default
 )
 Vue.component(
   'sales-bar-now',
-  require('./components/Charts/SalesFortnightNOWBarChart.vue').default
+  require('./components/Charts/Sales/SalesFortnightNOWBarChart.vue').default
 )
 Vue.component(
   'sales-bar-smt',
-  require('./components/Charts/SalesFortnightSMTBarChart.vue').default
+  require('./components/Charts/Sales/SalesFortnightSMTBarChart.vue').default
 )
 
 const router = new VueRouter({

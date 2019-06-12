@@ -21,4 +21,24 @@ class NewQuoteRequestsService
         return $this->NewQuoteRequestsRepository->getNATTotalQuoteRequests($request);
     }
 
+    public function getQLDQuoteRequests($request)
+    {
+        return $this->NewQuoteRequestsRepository->getQLDQuoteRequests($request);
+    }
+
+    public function getQLDTotalQuoteRequests($request)
+    {
+        return $this->NewQuoteRequestsRepository->getQLDTotalQuoteRequests($request);
+    }
+
+    public function getNSWQuoteRequests($request)
+    {
+        return $this->NewQuoteRequestsRepository->getNSWQuoteRequests($request);
+    }
+
+    public function getNSWTotalQuoteRequests($request)
+    {
+        return $this->NewQuoteRequestsRepository->getNSWTotalQuoteRequests($request);
+    }
+
 }

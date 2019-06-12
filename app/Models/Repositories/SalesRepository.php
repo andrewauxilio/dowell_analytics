@@ -13,9 +13,21 @@ class SalesRepository
         return $data;
     }
 
+    public function getQLDSales($request)
+    {
+        $data = DB::select("SET NOCOUNT ON; exec P_Sales_DB_SalesFortnight ?,?;", array("QLD", 15));
+        return $data;
+    }
+
     public function getGBGSales($request)
     {
         $data = DB::select("SET NOCOUNT ON; exec P_Sales_DB_SalesFortnight ?,?;", array("GBG", 15));
+        return $data;
+    }
+
+    public function getNSWSales($request)
+    {
+        $data = DB::select("SET NOCOUNT ON; exec P_Sales_DB_SalesFortnight ?,?;", array("NSW", 15));
         return $data;
     }
 

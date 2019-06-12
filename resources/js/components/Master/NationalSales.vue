@@ -7,9 +7,9 @@
       <div class="col-12 mt-3">
         <div class="card card-primary">
           <div class="card-header" id="line-chart">
-            <h3 class="card-title">Totals Sales Over 30 Days - National</h3>
+            <h3 class="card-title" v-on:click="getPDF()">Totals Sales Over 30 Days - National</h3>
           </div>
-          <div class="card-body">
+          <div class="card-body" id="testDiv">
             <div class="d-flex justify-content-center">
               <self-building-square-spinner v-if="loading" :size="40" color="#8e5ea2"/>
             </div>
@@ -160,7 +160,9 @@
 
 <script>
 import { SelfBuildingSquareSpinner } from "epic-spinners";
+import PrintPDFMixin from "../Mixins/PrintPDFMixin";
 export default {
+  mixins: [PrintPDFMixin],
   components: {
     SelfBuildingSquareSpinner
   },

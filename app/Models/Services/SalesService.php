@@ -16,9 +16,19 @@ class SalesService
         return $this->SalesRepository->getNATSales($request);
     }
 
+    public function getQLDSales($request)
+    {
+        return $this->SalesRepository->getQLDSales($request);
+    }
+
     public function getGBGSales($request)
     {
         return $this->SalesRepository->getGBGSales($request);
+    }
+
+    public function getNSWSales($request)
+    {
+        return $this->SalesRepository->getNSWSales($request);
     }
 
     public function getNEWSales($request)

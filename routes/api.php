@@ -26,6 +26,8 @@ Route::put('profile', 'API\UserController@updateProfile');
 
 //Sales
 Route::get('NATSales', 'API\SalesController@getNATSales');
+Route::get('QLDSales', 'API\SalesController@getQLDSales');
+Route::get('NSWSales', 'API\SalesController@getNSWSales');
 Route::get('GBGSales', 'API\SalesController@getGBGSales');
 Route::get('NEWSales', 'API\SalesController@getNEWSales');
 Route::get('NOWSales', 'API\SalesController@getNOWSales');
@@ -34,3 +36,7 @@ Route::get('SMTSales', 'API\SalesController@getSMTSales');
 //New Quote Request
 Route::get('NATQuoteRequests', 'API\NewQuoteRequestsController@getNATQuoteRequests');
 Route::get('NATTotalQuoteRequests', 'API\NewQuoteRequestsController@getNATTotalQuoteRequests');
+Route::get('QLDQuoteRequests', 'API\NewQuoteRequestsController@getQLDQuoteRequests');
+Route::get('QLDTotalQuoteRequests', 'API\NewQuoteRequestsController@getQLDTotalQuoteRequests');
+Route::get('NSWQuoteRequests', 'API\NewQuoteRequestsController@getNSWQuoteRequests');
+Route::get('NSWTotalQuoteRequests', 'API\NewQuoteRequestsController@getNSWTotalQuoteRequests');
