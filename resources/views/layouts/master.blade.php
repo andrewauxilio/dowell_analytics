@@ -67,7 +67,8 @@ This is the main page of the application. All router links are located here.
       <!-- Sidebar user panel -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="./images/profile/{{Auth::user()->photo}}" class="img-circle elevation-2" alt="User Photo">
+          {{-- <img src="./images/profile/{{Auth::user()->photo}}" class="img-circle elevation-2" alt="User Photo"> --}}
+          <img src="http://via.placeholder.com/150x150" class="img-circle elevation-2" alt="User Photo">
         </div>
         <div class="info">
           <a href="#" class="d-block">{{ Auth::user()->name }}</a>
