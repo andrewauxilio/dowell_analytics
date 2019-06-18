@@ -58,6 +58,11 @@ let routes = [
     path: '/manager-sa',
     component: require('./components/StateSA/Manager.vue').default
   },
+  // SA Tab Routes
+  {
+    path: '/messenger',
+    component: require('./components/Messenger/Messenger.vue').default
+  },
   // Not Found Page
   {
     path: '*',
