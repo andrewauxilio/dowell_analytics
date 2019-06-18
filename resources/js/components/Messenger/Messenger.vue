@@ -7,7 +7,7 @@
 
           <div class="card-body">
             <div class="messenger">
-              <Conversation :contact="selectedContact" :messages="messages"/>
+              <Conversation :contact="selectedContact" :messages="messages" @new="saveNewMessage"/>
               <ContactList :contacts="contacts" @selected="startConversationWith"/>
             </div>
           </div>
@@ -36,12 +36,14 @@ export default {
     };
   },
   mounted() {
-    console.log(this.user);
+    Echo.private(`messages${this.user.id}`).listen("NewMessage", event => {
+      this.handleIncoming(event.message);
+    });
+
     axios.get("api/contacts").then(response => {
       console.log(response.data);
       this.contacts = response.data;
     });
-    console.log("messenger mounted.");
   },
   methods: {
     startConversationWith(contact) {
@@ -49,6 +51,17 @@ export default {
         this.messages = response.data;
         this.selectedContact = contact;
       });
+    },
+    saveNewMessage(message) {
+      this.messages.push(message);
+    },
+    handleIncoming(message) {
+      if (this.selectedContact && message.from == this.selectedContact.id) {
+        this.saveNewMessage(message);
+        return;
+      }
+
+      alert(message.text);
     }
   },
   components: {

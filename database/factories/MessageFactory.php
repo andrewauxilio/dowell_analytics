@@ -19,7 +19,7 @@ $factory->define(Message::class, function (Faker $faker) {
     do {
         $from = rand(1, 15);
         $to = rand(1, 15);
-    } while ($from == $to);
+    } while ($from === $to);
 
     return [
         'from' => $from,

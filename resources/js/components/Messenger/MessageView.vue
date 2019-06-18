@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import { setTimeout } from "timers";
 export default {
   props: {
     contact: {
@@ -30,6 +31,22 @@ export default {
   },
   mounted() {
     console.log("message composer mounted.");
+  },
+  methods: {
+    scrollToBottom() {
+      setTimeout(() => {
+        this.$refs.view.scrollTop =
+          this.$refs.view.scrollHeight - this.$refs.view.clientHeight;
+      }, 50);
+    }
+  },
+  watch: {
+    contact(contact) {
+      this.scrollToBottom();
+    },
+    messages(messages) {
+      this.scrollToBottom();
+    }
   }
 };
 </script>
