@@ -10,6 +10,9 @@ window.Form = Form
 Vue.component(HasError.name, HasError)
 Vue.component(AlertError.name, AlertError)
 
+// Laravel-Vue-Pagination
+Vue.component('pagination', require('laravel-vue-pagination'))
+
 // SweetAlert
 window.swal = swal
 const toast = swal.mixin({

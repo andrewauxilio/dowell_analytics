@@ -33,6 +33,7 @@
     "html2canvas": "^1.0.0-rc.3",
     "jspdf": "^1.5.3",
     "laravel-echo": "^1.5.4",
+    "laravel-vue-pagination": "^2.3.0",
     "moment": "^2.24.0",
     "pusher-js": "^4.4.0",
     "vue-chartjs": "^3.4.2",
