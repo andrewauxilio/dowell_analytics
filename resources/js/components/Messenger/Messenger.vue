@@ -36,7 +36,7 @@ export default {
     };
   },
   mounted() {
-    Echo.private(`messages.${this.user.id}`).listen("NewMessage", event => {
+    Echo.channel(`messages.${this.user.id}`).listen("NewMessage", event => {
       this.handleIncoming(event.message);
     });
 
