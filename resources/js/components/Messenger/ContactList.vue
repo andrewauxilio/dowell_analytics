@@ -1,4 +1,5 @@
 <template>
+  <!----------Contact-List Component--------->
   <div class="contact-list">
     <ul>
       <li
@@ -33,14 +34,15 @@ export default {
       selected: this.contacts.length ? this.contacts[0] : null
     };
   },
-  mounted() {
-    console.log("contactlist mounted.");
-  },
+
   methods: {
+    //Fires the select contact event
     selectContact(contact) {
       this.selected = contact;
       this.$emit("selected", contact);
     },
+
+    //Retrieves the user photo
     getProfilePhoto(photo) {
       if (photo) {
         let prefix = photo.match(/\//) ? "" : "/images/profile/";
@@ -51,7 +53,9 @@ export default {
       }
     }
   },
+
   computed: {
+    //Sorts the contacts based on unread and newest messages
     sortedContacts() {
       return _.sortBy(this.contacts, [
         contact => {

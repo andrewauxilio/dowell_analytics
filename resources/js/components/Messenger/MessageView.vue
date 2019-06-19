@@ -1,4 +1,5 @@
 <template>
+  <!----------Messages-Feed Component--------->
   <div class="view" ref="view">
     <ul v-if="contact">
       <li
@@ -14,6 +15,7 @@
 
 <script>
 import { setTimeout } from "timers";
+
 export default {
   props: {
     contact: {
@@ -24,15 +26,15 @@ export default {
       required: true
     }
   },
+
   data() {
     return {
       message: ""
     };
   },
-  mounted() {
-    console.log("message composer mounted.");
-  },
+
   methods: {
+    //Automatically scrolls chat to latest chat
     scrollToBottom() {
       setTimeout(() => {
         this.$refs.view.scrollTop =
@@ -40,6 +42,7 @@ export default {
       }, 50);
     }
   },
+
   watch: {
     contact(contact) {
       this.scrollToBottom();

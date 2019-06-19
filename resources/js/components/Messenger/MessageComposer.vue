@@ -1,4 +1,5 @@
 <template>
+  <!----------Composer Component--------->
   <div class="composer">
     <textarea v-model="message" @keydown.enter="send" placeholder="Message..."></textarea>
   </div>
@@ -11,10 +12,9 @@ export default {
       message: ""
     };
   },
-  mounted() {
-    console.log("message composer mounted.");
-  },
+
   methods: {
+    //Fires the send event and clears the text area
     send(event) {
       event.preventDefault();
 

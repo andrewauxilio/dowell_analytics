@@ -1,10 +1,10 @@
 <template>
+  <!----------Messenger Component--------->
   <div class="container-fluid">
     <div class="row justify-content-center">
       <div class="col-md-10 mt-3">
-        <div class="card">
+        <div class="card card-primary">
           <div class="card-header">Messenger</div>
-
           <div class="card-body">
             <div class="messenger">
               <Conversation :contact="selectedContact" :messages="messages" @new="saveNewMessage"/>
@@ -28,6 +28,7 @@ export default {
       required: true
     }
   },
+
   data() {
     return {
       selectedContact: null,
@@ -35,17 +36,28 @@ export default {
       contacts: []
     };
   },
-  mounted() {
-    Echo.channel(`messages.${this.user.id}`).listen("NewMessage", event => {
-      this.handleIncoming(event.message);
-    });
 
-    axios.get("api/contacts").then(response => {
-      console.log(response.data);
-      this.contacts = response.data;
-    });
+  mounted() {
+    this.getMessages();
+    this.getContacts();
   },
+
   methods: {
+    //Pull contact data from the API
+    getContacts() {
+      axios.get("api/contacts").then(response => {
+        this.contacts = response.data;
+      });
+    },
+
+    //Listens for broadcasted messages
+    getMessages() {
+      Echo.channel(`messages.${this.user.id}`).listen("NewMessage", event => {
+        this.handleIncoming(event.message);
+      });
+    },
+
+    //Opens the conversation with the selected contact
     startConversationWith(contact) {
       this.updateUnreadCount(contact, true);
 
@@ -54,9 +66,13 @@ export default {
         this.selectedContact = contact;
       });
     },
+
+    //Saves the message in the messages array
     saveNewMessage(message) {
       this.messages.push(message);
     },
+
+    //Handles the broadcasted messages
     handleIncoming(message) {
       if (this.selectedContact && message.from == this.selectedContact.id) {
         this.saveNewMessage(message);
@@ -65,6 +81,8 @@ export default {
 
       this.updateUnreadCount(message.from_contact, false);
     },
+
+    //Checks if the messages are read or unread and changes status
     updateUnreadCount(contact, reset) {
       this.contacts = this.contacts.map(single => {
         if (single.id !== contact.id) {
@@ -76,6 +94,7 @@ export default {
       });
     }
   },
+
   components: {
     Conversation,
     ContactList

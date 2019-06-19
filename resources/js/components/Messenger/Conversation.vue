@@ -1,4 +1,5 @@
 <template>
+  <!----------Conversation Component--------->
   <div class="conversation">
     <h1>{{ contact ? contact.name : 'Select a Contact' }}</h1>
     <MessageView :contact="contact" :messages="messages"/>
@@ -21,10 +22,9 @@ export default {
       default: []
     }
   },
-  mounted() {
-    console.log("contactlist mounted.");
-  },
+
   methods: {
+    //Sends the message and fires the new event
     sendMessage(text) {
       if (!this.contact) {
         return;
@@ -38,9 +38,9 @@ export default {
         .then(response => {
           this.$emit("new", response.data);
         });
-      //console.log(text);
     }
   },
+
   components: {
     MessageView,
     MessageComposer

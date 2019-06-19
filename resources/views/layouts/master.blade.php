@@ -1,8 +1,5 @@
 
 <!DOCTYPE html>
-<!--
-This is the main page of the application. All router links are located here.
--->
 <html lang="en">
 <head>
 
