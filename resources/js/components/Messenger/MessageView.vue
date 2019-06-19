@@ -55,7 +55,8 @@ export default {
 .view {
   background: #f0f0f0;
   height: 100%;
-  max-height: 470px;
+  min-height: 400px;
+  max-height: 500px;
   overflow: scroll;
   ul {
     list-style-type: none;

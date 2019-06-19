@@ -8,7 +8,7 @@
         :class="{ 'selected' : contact == selected }"
       >
         <div class="photo">
-          <img :src="contact.photo" :alt="contact.name">
+          <img :src="getProfilePhoto(contact.photo)" :alt="contact.name">
         </div>
         <div class="info">
           <p class="name">{{ contact.name }}</p>
@@ -40,6 +40,15 @@ export default {
     selectContact(contact) {
       this.selected = contact;
       this.$emit("selected", contact);
+    },
+    getProfilePhoto(photo) {
+      if (photo) {
+        let prefix = photo.match(/\//) ? "" : "/images/profile/";
+        return prefix + photo;
+      } else {
+        let placeholder = "http://via.placeholder.com/150x150";
+        return placeholder;
+      }
     }
   },
   computed: {
