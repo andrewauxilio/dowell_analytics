@@ -67,7 +67,8 @@ This is the main page of the application. All router links are located here.
       <!-- Sidebar user panel -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="./images/profile/{{Auth::user()->photo}}" class="img-circle elevation-2" alt="User Photo">
+          {{-- <img src="./images/profile/{{Auth::user()->photo}}" class="img-circle elevation-2" alt="User Photo"> --}}
+          <img src="http://via.placeholder.com/150x150" class="img-circle elevation-2" alt="User Photo">
         </div>
         <div class="info">
           <a href="#" class="d-block">{{ Auth::user()->name }}</a>
@@ -191,6 +192,14 @@ This is the main page of the application. All router links are located here.
             </router-link>
           </li>
           <li class="nav-item">
+            <router-link to="/messenger" class="nav-link">
+              <i class="nav-icon fas fa-comments"></i>
+              <p>
+                Messenger
+              </p>
+            </router-link>
+          </li>
+          <li class="nav-item">
             <router-link to="/developer" class="nav-link">
               <i class="nav-icon fas fa-cogs"></i>
               <p>
@@ -224,7 +233,7 @@ This is the main page of the application. All router links are located here.
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
-          <router-view></router-view>
+          <router-view :user="{{ auth()->user() }}"></router-view>
           <vue-progress-bar></vue-progress-bar>
       </div><!-- /.container-fluid -->
     </div>

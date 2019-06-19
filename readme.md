@@ -35,7 +35,11 @@ Prerequisites:
 
         php artisan key:generate
 
+<<<<<<< HEAD
 5.  Install Laravel Passport:
+=======
+5.  Generate application key:
+>>>>>>> chat_integration
 
         php artisan passport:install
 

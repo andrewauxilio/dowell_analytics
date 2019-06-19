@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('role')->default('standard');
             $table->string('site')->nullable();
             $table->string('state')->nullable();
-            $table->string('photo')->nullable();
+            $table->string('photo')->default('http://via.placeholder.com/150x150');
             $table->string('info', 1000)->nullable();
             $table->string('email')->unique();
             $table->string('mobile')->nullable();
