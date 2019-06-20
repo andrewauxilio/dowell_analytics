@@ -3,7 +3,7 @@
   <!----------------Charts---------------->
   <!-------------------------------------->
   <div class="container-fluid">
-    <div class="row">
+    <div class="row" v-if="$gate.isQLDManager()">
       <div class="col-md-8 col-sm-6 col-12 mt-3">
         <div class="card card-primary">
           <div class="card-header" id="line-chart">
@@ -45,6 +45,9 @@
           </div>
         </div>
       </div>
+    </div>
+    <div>
+      <not-found v-if="!$gate.isQLDManager()"></not-found>
     </div>
   </div>
 </template>

@@ -4,6 +4,10 @@ import swal from 'sweetalert2'
 import VueAxios from 'vue-axios'
 import axios from 'axios'
 import VueProgressBar from 'vue-progressbar'
+import Gate from './gate'
+
+// Gate Authentication
+Vue.prototype.$gate = new Gate(window.user)
 
 // Vue Form
 window.Form = Form

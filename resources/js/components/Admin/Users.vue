@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="row">
+    <div class="row" v-if="$gate.isAdministrator()">
       <div class="col-12 mt-3">
         <div class="card">
           <div class="card-header">
@@ -75,6 +75,10 @@
       </div>
     </div>
 
+    <div>
+      <not-found v-if="!$gate.isAdministrator()"></not-found>
+    </div>
+
     <!-- User Modal -->
     <!-- Modal -->
     <div
@@ -130,8 +134,11 @@
                   :class="{ 'is-invalid': form.errors.has('type') }"
                 >
                   <option value="admin">Administrator</option>
-                  <option value="manager">Manager</option>
-                  <option value="user">User</option>
+                  <option value="national">National</option>
+                  <option value="nsw_manager">NSW Manager</option>
+                  <option value="nsw_standard">NSW Standard</option>
+                  <option value="qld_manager">QLD Manager</option>
+                  <option value="qld_standard">QLD Standard</option>
                 </select>
                 <has-error :form="form" field="type"></has-error>
               </div>
@@ -255,7 +262,7 @@ export default {
                 Fire.$emit("UserChanges");
               })
               .catch(() => {
-                swal(
+                swal.fire(
                   "Failed!",
                   "There was an error deleting the user.",
                   "warning"
@@ -291,7 +298,9 @@ export default {
     //--------Load user table method--------//
     //--------------------------------------//
     loadUsers() {
-      axios.get("api/user").then(({ data }) => (this.users = data));
+      if (this.$gate.isAdministrator()) {
+        axios.get("api/user").then(({ data }) => (this.users = data));
+      }
     },
     //--------------------------------------//
     //-----------Switching Modals-----------//

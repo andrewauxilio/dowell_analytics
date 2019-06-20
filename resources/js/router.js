@@ -48,10 +48,18 @@ let routes = [
     path: '/manager-qld',
     component: require('./components/StateQLD/Manager.vue').default
   },
+  {
+    path: '/standard-qld',
+    component: require('./components/StateQLD/Standard.vue').default
+  },
   // NSW Tab Routes
   {
     path: '/manager-nsw',
     component: require('./components/StateNSW/Manager.vue').default
+  },
+  {
+    path: '/standard-nsw',
+    component: require('./components/StateNSW/Standard.vue').default
   },
   // SA Tab Routes
   {
@@ -78,6 +86,7 @@ Vue.component(
   'example-component',
   require('./components/ExampleComponent.vue').default
 )
+Vue.component('not-found', require('./components/PageNotFound.vue').default)
 Vue.component(
   'passport-clients',
   require('./components/passport/Clients.vue').default

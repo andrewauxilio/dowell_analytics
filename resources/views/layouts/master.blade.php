@@ -68,7 +68,9 @@
           <img src="http://via.placeholder.com/150x150" class="img-circle elevation-2" alt="User Photo">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+          <a href="#" class="d-block">
+            {{ Auth::user()->name }}
+          </a>
         </div>
       </div>
 
@@ -77,7 +79,8 @@
       -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-         
+          
+          @can('isAdministrator')
           <li class="nav-item has-treeview menu">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-user-cog"></i>
@@ -95,6 +98,9 @@
               </li>
             </ul>
           </li>
+          @endcan
+
+          @can('isNational')
           <li class="nav-item has-treeview menu">
             <a href="#" class="nav-link">
               <i class="nav-icon fab fa-font-awesome-flag"></i>
@@ -112,6 +118,9 @@
               </li>
             </ul>
           </li>
+          @endcan
+
+          @can('isVIC')
           <li class="nav-item has-treeview menu">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-map-marked"></i>
@@ -129,6 +138,9 @@
               </li>
             </ul>
           </li>
+          @endcan
+
+          @can('isQLD')
           <li class="nav-item has-treeview menu">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-map-marked"></i>
@@ -137,6 +149,7 @@
                 <i class="right fa fa-angle-left"></i>
               </p>
             </a>
+            @can('isQLDManager')
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <router-link to="/manager-qld" class="nav-link">
@@ -145,7 +158,21 @@
                 </router-link>
               </li>
             </ul>
+            @endcan
+            @can('isQLDStandard')
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <router-link to="/standard-qld" class="nav-link">
+                  <i class="nav-icon fa fa-circle-o"></i>
+                  <p>Standard</p>
+                </router-link>
+              </li>
+            </ul>
+            @endcan
           </li>
+          @endcan
+
+          @can('isNSW')
           <li class="nav-item has-treeview menu">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-map-marked"></i>
@@ -154,6 +181,7 @@
                 <i class="right fa fa-angle-left"></i>
               </p>
             </a>
+            @can('isNSWManager')
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <router-link to="/manager-nsw" class="nav-link">
@@ -162,7 +190,21 @@
                 </router-link>
               </li>
             </ul>
+            @endcan
+            @can('isNSWStandard')
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <router-link to="/standard-nsw" class="nav-link">
+                  <i class="nav-icon fa fa-circle-o"></i>
+                  <p>Standard</p>
+                </router-link>
+              </li>
+            </ul>
+            @endcan
           </li>
+          @endcan
+
+          @can('isSA')
           <li class="nav-item has-treeview menu">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-map-marked"></i>
@@ -180,6 +222,8 @@
               </li>
             </ul>
           </li>
+          @endcan
+
           <li class="nav-item">
             <router-link to="/profile" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
@@ -196,6 +240,8 @@
               </p>
             </router-link>
           </li>
+
+          @can('isAdministrator')
           <li class="nav-item">
             <router-link to="/developer" class="nav-link">
               <i class="nav-icon fas fa-cogs"></i>
@@ -204,6 +250,7 @@
               </p>
             </router-link>
           </li>
+          @endcan
           
           <li class="nav-item">
             <a  class="nav-link" href="{{ route('logout') }}"
@@ -249,6 +296,12 @@
   </footer>
 </div>
 <!-- ./wrapper -->
+
+@auth
+<script>
+    window.user = @json(auth()->user())
+</script>
+@endauth
 
 <script src="/js/app.js"></script>
 </body>

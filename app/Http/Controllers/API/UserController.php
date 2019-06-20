@@ -22,7 +22,11 @@ class UserController extends Controller
 
     public function index()
     {
-        return User::latest()->paginate(10);
+        //$this->authorize('isAdministrator');
+        if (\Gate::allows('isAdministrator') || \Gate::allows('isNational')) {
+            return User::latest()->paginate(10);
+        }
+
     }
 
     /**

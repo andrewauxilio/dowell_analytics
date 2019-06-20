@@ -3,7 +3,7 @@
   <!----------------Charts---------------->
   <!-------------------------------------->
   <div class="container-fluid">
-    <div class="row">
+    <div class="row" v-if="$gate.isNational()">
       <div class="col-12 mt-3">
         <div class="card card-primary">
           <div class="card-header" id="line-chart">
@@ -154,6 +154,9 @@
           </div>
         </div>
       </div>
+    </div>
+    <div>
+      <not-found v-if="!$gate.isNational()"></not-found>
     </div>
   </div>
 </template>

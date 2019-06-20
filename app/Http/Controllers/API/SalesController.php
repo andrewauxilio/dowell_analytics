@@ -24,44 +24,58 @@ class SalesController extends Controller
 
     public function getNATSales(Request $request)
     {
-        $data = $this->SalesService->getNATSales($request);
-        return $data;
+        if (\Gate::allows('isNational')) {
+            $data = $this->SalesService->getNATSales($request);
+            return $data;
+        }
     }
 
     public function getQLDSales(Request $request)
     {
-        $data = $this->SalesService->getQLDSales($request);
-        return $data;
+        if (\Gate::allows('isQLD')) {
+            $data = $this->SalesService->getQLDSales($request);
+            return $data;
+        }
     }
 
     public function getGBGSales(Request $request)
     {
-        $data = $this->SalesService->getGBGSales($request);
-        return $data;
+        if (\Gate::allows('isQLD')) {
+            $data = $this->SalesService->getGBGSales($request);
+            return $data;
+        }
     }
 
     public function getNSWSales(Request $request)
     {
-        $data = $this->SalesService->getNSWSales($request);
-        return $data;
+        if (\Gate::allows('isNSW')) {
+            $data = $this->SalesService->getNSWSales($request);
+            return $data;
+        }
     }
 
     public function getNEWSales(Request $request)
     {
-        $data = $this->SalesService->getNEWSales($request);
-        return $data;
+        if (\Gate::allows('isNSW')) {
+            $data = $this->SalesService->getNEWSales($request);
+            return $data;
+        }
     }
 
     public function getNOWSales(Request $request)
     {
-        $data = $this->SalesService->getNOWSales($request);
-        return $data;
+        if (\Gate::allows('isNSW')) {
+            $data = $this->SalesService->getNOWSales($request);
+            return $data;
+        }
     }
 
     public function getSMTSales(Request $request)
     {
-        $data = $this->SalesService->getSMTSales($request);
-        return $data;
+        if (\Gate::allows('isNSW')) {
+            $data = $this->SalesService->getSMTSales($request);
+            return $data;
+        }
     }
 
 }
