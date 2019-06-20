@@ -43,7 +43,7 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define('isQLDManager', function ($user) {
-            if ($user->role === 'qld_manager' || $user->role === 'admin') {
+            if ($user->role === 'qld_manager' || $user->role === 'national' || $user->role === 'admin') {
                 return true;
             };
         });
@@ -61,7 +61,7 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define('isNSWManager', function ($user) {
-            if ($user->role === 'nsw_manager' || $user->role === 'admin') {
+            if ($user->role === 'nsw_manager' || $user->role === 'national' || $user->role === 'admin') {
                 return true;
             };
         });
@@ -79,7 +79,7 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define('isVICManager', function ($user) {
-            if ($user->role === 'vic_manager' || $user->role === 'admin') {
+            if ($user->role === 'vic_manager' || $user->role === 'national' || $user->role === 'admin') {
                 return true;
             };
         });
@@ -97,7 +97,7 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define('isSAManager', function ($user) {
-            if ($user->role === 'sa_manager' || $user->role === 'admin') {
+            if ($user->role === 'sa_manager' || $user->role === 'national' || $user->role === 'admin') {
                 return true;
             };
         });

@@ -24,7 +24,11 @@ export default class Gate {
   }
 
   isQLDManager () {
-    if (this.user.role === 'qld_manager' || this.user.role === 'admin') {
+    if (
+      this.user.role === 'qld_manager' ||
+      this.user.role === 'national' ||
+      this.user.role === 'admin'
+    ) {
       return true
     }
   }
@@ -46,7 +50,11 @@ export default class Gate {
   }
 
   isNSWManager () {
-    if (this.user.role === 'nsw_manager' || this.user.role === 'admin') {
+    if (
+      this.user.role === 'nsw_manager' ||
+      this.user.role === 'national' ||
+      this.user.role === 'admin'
+    ) {
       return true
     }
   }
@@ -68,7 +76,11 @@ export default class Gate {
   }
 
   isVICManager () {
-    if (this.user.role === 'vic_manager' || this.user.role === 'admin') {
+    if (
+      this.user.role === 'vic_manager' ||
+      this.user.role === 'national' ||
+      this.user.role === 'admin'
+    ) {
       return true
     }
   }
@@ -90,7 +102,11 @@ export default class Gate {
   }
 
   isSAManager () {
-    if (this.user.role === 'sa_manager' || this.user.role === 'admin') {
+    if (
+      this.user.role === 'sa_manager' ||
+      this.user.role === 'national' ||
+      this.user.role === 'admin'
+    ) {
       return true
     }
   }
