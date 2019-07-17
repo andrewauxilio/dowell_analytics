@@ -51,7 +51,7 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar sidebar-light-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="./images/logo.png" alt="Admin Logo" class="brand-image img-circle elevation-3"
@@ -64,8 +64,8 @@
       <!-- Sidebar user panel -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          {{-- <img src="./images/profile/{{Auth::user()->photo}}" class="img-circle elevation-2" alt="User Photo"> --}}
-          <img src="http://via.placeholder.com/150x150" class="img-circle elevation-2" alt="User Photo">
+          <img src="./images/profile/{{Auth::user()->photo}}" class="img-circle elevation-2" alt="User Photo">
+          {{-- <img src="http://via.placeholder.com/150x150" class="img-circle elevation-2" alt="User Photo"> --}}
         </div>
         <div class="info">
           <a href="#" class="d-block">
@@ -103,7 +103,7 @@
           @can('isNational')
           <li class="nav-item has-treeview menu">
             <a href="#" class="nav-link">
-              <i class="nav-icon fab fa-font-awesome-flag"></i>
+              <i class="nav-icon fab fa-font-awesome-flag icon-green"></i>
               <p>
                 National 
                 <i class="right fa fa-angle-left"></i>
@@ -111,16 +111,22 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <router-link to="/nat-sales" class="nav-link">
-                  <i class="nav-icon fa fa-circle-o"></i>
-                  <p>Sales</p>
+                <router-link to="/dashboard-nat" class="nav-link">
+                  <i class="nav-icon fas fa-chart-line"></i>
+                  <p>Dashboard</p>
+                </router-link>
+              </li>
+              <li class="nav-item">
+                <router-link to="/reports-nat" class="nav-link">
+                  <i class="nav-icon fas fa-scroll"></i>
+                  <p>Reports</p>
                 </router-link>
               </li>
             </ul>
           </li>
           @endcan
 
-          @can('isVIC')
+          {{-- @can('isVIC')
           <li class="nav-item has-treeview menu">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-map-marked"></i>
@@ -138,12 +144,12 @@
               </li>
             </ul>
           </li>
-          @endcan
+          @endcan --}}
 
           @can('isQLD')
           <li class="nav-item has-treeview menu">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-map-marked"></i>
+              <i class="nav-icon fas fa-map-marked icon-green"></i>
               <p>
                 Queensland
                 <i class="right fa fa-angle-left"></i>
@@ -152,9 +158,9 @@
             @can('isQLDManager')
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <router-link to="/manager-qld" class="nav-link">
-                  <i class="nav-icon fa fa-circle-o"></i>
-                  <p>Manager</p>
+                <router-link to="/dashboard-qld" class="nav-link">
+                  <i class="nav-icon fas fa-chart-line"></i>
+                  <p>Dashboard</p>
                 </router-link>
               </li>
             </ul>
@@ -162,9 +168,9 @@
             @can('isQLDStandard')
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <router-link to="/standard-qld" class="nav-link">
-                  <i class="nav-icon fa fa-circle-o"></i>
-                  <p>Standard</p>
+                <router-link to="/reports-qld" class="nav-link">
+                  <i class="nav-icon fas fa-scroll"></i>
+                  <p>Reports</p>
                 </router-link>
               </li>
             </ul>
@@ -175,7 +181,7 @@
           @can('isNSW')
           <li class="nav-item has-treeview menu">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-map-marked"></i>
+              <i class="nav-icon fas fa-map-marked icon-green"></i>
               <p>
                 New South Wales
                 <i class="right fa fa-angle-left"></i>
@@ -184,9 +190,9 @@
             @can('isNSWManager')
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <router-link to="/manager-nsw" class="nav-link">
+                <router-link to="/dashboard-nsw" class="nav-link">
                   <i class="nav-icon fa fa-circle-o"></i>
-                  <p>Manager</p>
+                  <p>Dashboard</p>
                 </router-link>
               </li>
             </ul>
@@ -194,9 +200,9 @@
             @can('isNSWStandard')
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <router-link to="/standard-nsw" class="nav-link">
+                <router-link to="/reports-nsw" class="nav-link">
                   <i class="nav-icon fa fa-circle-o"></i>
-                  <p>Standard</p>
+                  <p>Reports</p>
                 </router-link>
               </li>
             </ul>
@@ -204,7 +210,7 @@
           </li>
           @endcan
 
-          @can('isSA')
+          {{-- @can('isSA')
           <li class="nav-item has-treeview menu">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-map-marked"></i>
@@ -222,7 +228,7 @@
               </li>
             </ul>
           </li>
-          @endcan
+          @endcan --}}
 
           <li class="nav-item">
             <router-link to="/profile" class="nav-link">
@@ -239,7 +245,7 @@
                 Messenger
               </p>
             </router-link>
-          </li>
+          </li> 
 
           @can('isAdministrator')
           <li class="nav-item">
@@ -304,5 +310,6 @@
 @endauth
 
 <script src="/js/app.js"></script>
+  
 </body>
 </html>

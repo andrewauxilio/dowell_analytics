@@ -31,6 +31,7 @@
     "epic-spinners": "^1.1.0",
     "hchs-vue-charts": "^1.2.8",
     "html2canvas": "^1.0.0-rc.3",
+    "js-datepicker": "^4.6.4",
     "jspdf": "^1.5.3",
     "laravel-echo": "^1.5.4",
     "laravel-vue-pagination": "^2.3.0",
@@ -41,6 +42,7 @@
     "vue-content-loading": "^1.6.0",
     "vue-progressbar": "^0.7.5",
     "vue-router": "^3.0.6",
+    "vuejs-datepicker": "^1.6.2",
     "vuetable-2": "^2.0.0-beta.4"
   }
 }

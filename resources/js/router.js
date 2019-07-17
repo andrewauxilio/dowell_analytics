@@ -35,8 +35,12 @@ let routes = [
   },
   // National Tab Routes
   {
-    path: '/nat-sales',
-    component: require('./components/Master/NationalSales.vue').default
+    path: '/dashboard-nat',
+    component: require('./components/Master/Dashboard.vue').default
+  },
+  {
+    path: '/eports-nat',
+    component: require('./components/Master/Reports.vue').default
   },
   // VIC Tab Routes
   {
@@ -45,21 +49,21 @@ let routes = [
   },
   // QLD Tab Routes
   {
-    path: '/manager-qld',
-    component: require('./components/StateQLD/Manager.vue').default
+    path: '/dashboard-qld',
+    component: require('./components/StateQLD/Dashboard.vue').default
   },
   {
-    path: '/standard-qld',
-    component: require('./components/StateQLD/Standard.vue').default
+    path: '/reports-qld',
+    component: require('./components/StateQLD/Reports.vue').default
   },
   // NSW Tab Routes
   {
-    path: '/manager-nsw',
-    component: require('./components/StateNSW/Manager.vue').default
+    path: '/dashboard-nsw',
+    component: require('./components/StateNSW/Dashboard.vue').default
   },
   {
-    path: '/standard-nsw',
-    component: require('./components/StateNSW/Standard.vue').default
+    path: '/reports-nsw',
+    component: require('./components/StateNSW/Reports.vue').default
   },
   // SA Tab Routes
   {
