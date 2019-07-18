@@ -75,6 +75,11 @@ let routes = [
     path: '/messenger',
     component: require('./components/Messenger/Messenger.vue').default
   },
+  // Reports
+  {
+    path: '/rep-sales-report',
+    component: require('./components/Reports/Rep-Sales.vue').default
+  },
   // Not Found Page
   {
     path: '*',
@@ -168,6 +173,16 @@ Vue.component(
 Vue.component(
   'sales-bar-smt',
   require('./components/Charts/Sales/SalesFortnightSMTBarChart.vue').default
+)
+
+//Reports
+Vue.component(
+  'rep-sales',
+  require('./components/Reports/Rep-Sales.vue').default
+)
+Vue.component(
+  'test-report',
+  require('./components/Reports/Test-Report.vue').default
 )
 
 const router = new VueRouter({
